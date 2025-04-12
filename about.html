@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en" data-language="english">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Ayurveda Harmony</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- GSAP Animation Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+  <style>
+    .story-animation-container {
+      position: relative;
+      overflow: hidden;
+      min-height: 400px;
+    }
+    
+    .walking-man {
+      position: absolute;
+      width: 150px;
+      height: 300px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      display: none;
+    }
+    
+    .yoga-man {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      z-index: 5;
+    }
+    
+    .story-text {
+      opacity: 0;
+    }
+    
+    .story-text p {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    
+    .story-bg-image {
+      opacity: 0.3;
+      transition: opacity 1s ease;
+    }
+    
+    .animation-complete .story-bg-image {
+      opacity: 1;
+    }
+    
+    @keyframes walking {
+      0% { background-image: url('public/images/walking-man-1.svg'); }
+      25% { background-image: url('public/images/walking-man-2.svg'); }
+      50% { background-image: url('public/images/walking-man-3.svg'); }
+      75% { background-image: url('public/images/walking-man-4.svg'); }
+      100% { background-image: url('public/images/walking-man-1.svg'); }
+    }
+  </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-800">
+  <!-- Navigation -->
+  <nav id="navbar" class="fixed w-full z-50 bg-white shadow-md">
+    <div class="container mx-auto px-6 py-3">
+      <div class="flex justify-between items-center">
+        <!-- Update the logo height to match navbar height -->
+<a href="index.html" class="flex items-center">
+  <span class="text-2xl font-bold text-green-800">Ayurveda<span class="text-green-600">Harmony</span></span>
+</a>
+        
+        <div class="hidden md:flex items-center">
+          <div class="space-x-8 mr-8">
+            <a href="index.html" class="nav-link" data-key="home">Home</a>
+            <a href="about.html" class="nav-link active" data-key="about">About</a>
+            <a href="services.html" class="nav-link" data-key="services">Services</a>
+            <a href="team.html" class="nav-link" data-key="team">Team</a>
+            <a href="testimonials.html" class="nav-link" data-key="testimonials">Testimonials</a>
+            <a href="contact.html" class="nav-link" data-key="contact">Contact</a>
+          </div>
+          
+          <!-- Language Switcher -->
+          <div class="relative language-switcher">
+            <button id="language-toggle" class="flex items-center space-x-1 bg-green-50 hover:bg-green-100 text-green-800 px-3 py-2 rounded-md transition-colors">
+              <i class="fas fa-globe text-green-600"></i>
+              <span id="current-language">English</span>
+              <i class="fas fa-chevron-down text-xs"></i>
+            </button>
+            <div id="language-dropdown" class="absolute right-0 mt-2 w-36 bg-white rounded-md shadow-lg py-1 z-50 hidden">
+              <a href="#" class="language-option block px-4 py-2 text-sm text-gray-700 hover:bg-green-50" data-lang="english">English</a>
+              <a href="#" class="language-option block px-4 py-2 text-sm text-gray-700 hover:bg-green-50" data-lang="marathi">मराठी (Marathi)</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="md:hidden flex items-center">
+          <!-- Mobile Language Switcher -->
+          <div class="relative language-switcher mr-4">
+            <button id="mobile-language-toggle" class="flex items-center space-x-1 bg-green-50 hover:bg-green-100 text-green-800 px-2 py-1 rounded-md transition-colors">
+              <i class="fas fa-globe text-green-600"></i>
+              <span id="mobile-current-language">EN</span>
+            </button>
+            <div id="mobile-language-dropdown" class="absolute right-0 mt-2 w-36 bg-white rounded-md shadow-lg py-1 z-50 hidden">
+              <a href="#" class="language-option block px-4 py-2 text-sm text-gray-700 hover:bg-green-50" data-lang="english">English</a>
+              <a href="#" class="language-option block px-4 py-2 text-sm text-gray-700 hover:bg-green-50" data-lang="marathi">मराठी (Marathi)</a>
+            </div>
+          </div>
+          
+          <button id="menu-toggle" class="focus:outline-none">
+            <svg class="h-6 w-6 text-green-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+      <div class="container mx-auto px-6 py-3 flex flex-col space-y-4">
+        <a href="index.html" class="mobile-nav-link" data-key="home">Home</a>
+        <a href="about.html" class="mobile-nav-link active" data-key="about">About</a>
+        <a href="services.html" class="mobile-nav-link" data-key="services">Services</a>
+        <a href="team.html" class="mobile-nav-link" data-key="team">Team</a>
+        <a href="testimonials.html" class="mobile-nav-link" data-key="testimonials">Testimonials</a>
+        <a href="contact.html" class="mobile-nav-link" data-key="contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header bg-cover bg-center" style="background-image: url('public/images/services-bg.png')">
+    <div class="container mx-auto px-6 py-32 text-center">
+      <h1 data-aos="fade-up" class="text-4xl md:text-5xl font-bold text-white mb-4" data-key="aboutUs">About Us</h1>
+      <p data-aos="fade-up" data-aos-delay="200" class="text-xl text-white">Discover our journey, philosophy, and commitment to holistic healing</p>
+    </div>
+  </section>
+
+  <!-- Our Story Section with Animation -->
+  <section class="py-20 bg-white" id="our-story-section">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 mb-10 md:mb-0 story-animation-container" id="animation-container">
+          <!-- Background image that will fade in after animation -->
+          <img src="public/images/about-image.png" alt="Our story" class="rounded-lg shadow-xl story-bg-image" id="story-bg-image">
+          
+          <!-- Walking man animation -->
+          <div class="walking-man" id="walking-man"></div>
+          
+          <!-- Yoga man that appears at the end -->
+          <img src="public/images/yoga-man.svg" alt="Yoga pose" class="yoga-man" id="yoga-man">
+        </div>
+        
+        <div class="md:w-1/2 md:pl-12 story-text" id="story-text">
+          <h2 class="text-3xl font-bold text-green-800 mb-6">Our Story</h2>
+          <p class="text-gray-600 mb-6">
+            AyurvedaHarmony was founded in 2005 by Dr. Arjun Sharma, a visionary Ayurvedic physician who recognized the growing disconnect between modern lifestyles and natural healing wisdom. After years of practicing traditional Ayurveda in Kerala, Dr. Sharma set out to create a sanctuary where people could reconnect with nature's healing elements.
+          </p>
+          <p class="text-gray-600 mb-6">
+            What began as a small clinic offering personalized Ayurvedic consultations has grown into a comprehensive wellness center with a team of dedicated practitioners. Our signature naturopathy camps, introduced in 2010, have helped thousands of individuals from around the world experience the transformative power of natural healing.
+          </p>
+          <p class="text-gray-600">
+            Today, AyurvedaHarmony stands as a testament to the enduring relevance of ancient healing traditions in our modern world. We continue to evolve while staying true to the authentic principles that have guided Ayurvedic practice for thousands of years.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Philosophy Section -->
+  <section class="py-20" style="background-color: var(--primary-color);">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 data-aos="fade-up" class="section-title">Our Philosophy</h2>
+        <div data-aos="fade-up" data-aos-delay="200" class="section-divider"></div>
+      </div>
+      
+      <!-- Philosophy cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div data-aos="fade-up" data-aos-delay="100" class="bg-white p-8 rounded-lg shadow-md">
+          <div class="text-green-600 mb-4">
+            <i class="fas fa-balance-scale text-4xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-green-800 mb-3">Balance is Key</h3>
+          <p class="text-gray-600">
+            We believe that health is a state of perfect balance between mind, body, and spirit. Our approach focuses on identifying imbalances and restoring harmony through natural interventions tailored to your unique constitution.
+          </p>
+        </div>
+        
+        <div data-aos="fade-up" data-aos-delay="200" class="bg-white p-8 rounded-lg shadow-md">
+          <div class="text-green-600 mb-4">
+            <i class="fas fa-seedling text-4xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-green-800 mb-3">Nature as Healer</h3>
+          <p class="text-gray-600">
+            Nature provides everything needed for healing and wellness. Our treatments harness the power of natural elements, herbs, and therapies to support the body's innate healing intelligence rather than merely suppressing symptoms.
+          </p>
+        </div>
+        
+        <div data-aos="fade-up" data-aos-delay="300" class="bg-white p-8 rounded-lg shadow-md">
+          <div class="text-green-600 mb-4">
+            <i class="fas fa-user text-4xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-green-800 mb-3">Personalized Care</h3>
+          <p class="text-gray-600">
+            We recognize that each person is unique, with their own constitution and needs. Our practitioners take time to understand your individual health profile and create customized treatment plans that address the root causes of imbalance.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Approach Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 data-aos="fade-up" class="section-title">Our Approach</h2>
+        <div data-aos="fade-up" data-aos-delay="200" class="section-divider"></div>
+        <p data-aos="fade-up" data-aos-delay="400" class="max-w-3xl mx-auto text-gray-600 mt-6">
+          At AyurvedaHarmony, we follow a comprehensive approach to wellness that integrates traditional Ayurvedic principles with modern naturopathic practices.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div data-aos="fade-right" class="flex">
+          <div class="mr-6">
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600">
+              <span class="text-xl font-bold">1</span>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-green-800 mb-3">Assessment</h3>
+            <p class="text-gray-600 mb-4">
+              We begin with a thorough assessment of your current health status, including pulse diagnosis, dosha determination, and evaluation of your lifestyle factors. This helps us understand your unique constitution and identify areas of imbalance.
+            </p>
+          </div>
+        </div>
+        
+        <div data-aos="fade-left" class="flex">
+          <div class="mr-6">
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600">
+              <span class="text-xl font-bold">2</span>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-green-800 mb-3">Detoxification</h3>
+            <p class="text-gray-600 mb-4">
+              Many health issues stem from accumulated toxins in the body. Our gentle detoxification protocols help remove these toxins, creating a clean foundation for healing and rejuvenation.
+            </p>
+          </div>
+        </div>
+        
+        <div data-aos="fade-right" class="flex">
+          <div class="mr-6">
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600">
+              <span class="text-xl font-bold">3</span>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-green-800 mb-3">Rejuvenation</h3>
+            <p class="text-gray-600 mb-4">
+              Once toxins are cleared, we focus on rebuilding vitality through specialized herbs, nutritional support, and therapeutic treatments that nourish tissues and strengthen bodily systems.
+            </p>
+          </div>
+        </div>
+        
+        <div data-aos="fade-left" class="flex">
+          <div class="mr-6">
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600">
+              <span class="text-xl font-bold">4</span>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-green-800 mb-3">Maintenance</h3>
+            <p class="text-gray-600 mb-4">
+              We empower you with knowledge and practices to maintain optimal health long after your treatment. This includes dietary guidelines, lifestyle recommendations, and daily routines tailored to your constitution.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Values Section -->
+  <section class="py-20 bg-green-50">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 data-aos="fade-up" class="section-title">Our Values</h2>
+        <div data-aos="fade-up" data-aos-delay="200" class="section-divider"></div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div data-aos="fade-up" data-aos-delay="100" class="text-center">
+          <div class="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-md">
+            <i class="fas fa-heart text-green-600 text-3xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-green-800 mb-3">Compassion</h3>
+          <p class="text-gray-600">
+            We approach each person with genuine care and understanding, recognizing that healing involves both physical and emotional support.
+          </p>
+        </div>
+        
+        <div data-aos="fade-up" data-aos-delay="200" class="text-center">
+          <div class="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-md">
+            <i class="fas fa-book text-green-600 text-3xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-green-800 mb-3">Authenticity</h3>
+          <p class="text-gray-600">
+            We remain true to the ancient wisdom of Ayurveda while integrating evidence-based approaches for comprehensive care.
+          </p>
+        </div>
+        
+        <div data-aos="fade-up" data-aos-delay="300" class="text-center">
+          <div class="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-md">
+            <i class="fas fa-leaf text-green-600 text-3xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-green-800 mb-3">Sustainability</h3>
+          <p class="text-gray-600">
+            We are committed to environmental stewardship in all aspects of our practice, from sourcing herbs to minimizing our ecological footprint.
+          </p>
+        </div>
+        
+        <div data-aos="fade-up" data-aos-delay="400" class="text-center">
+          <div class="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-md">
+            <i class="fas fa-users text-green-600 text-3xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-green-800 mb-3">Community</h3>
+          <p class="text-gray-600">
+            We foster a sense of belonging and support among our clients, creating a community dedicated to wellness and mutual growth.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-16" style="background-color: var(--accent-color);">
+    <div class="container mx-auto px-6 text-center">
+      <h2 data-aos="fade-up" class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Begin Your Healing Journey?</h2>
+      <p data-aos="fade-up" data-aos-delay="200" class="text-xl mb-8 max-w-3xl mx-auto text-white">
+        Join our upcoming naturopathy camp and experience the transformative power of Ayurvedic healing.
+      </p>
+      <div data-aos="fade-up" data-aos-delay="400">
+        <a href="contact.html" class="btn-white mr-4">Book Your Spot</a>
+        <a href="services.html" class="btn-outline">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-2xl font-bold mb-6">Ayurveda<span class="text-green-500">Harmony</span></h3>
+          <p class="text-gray-400 mb-6">
+            Reconnect with nature's healing wisdom through our authentic Ayurvedic treatments and naturopathy programs.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-green-500">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-green-500">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-green-500">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-green-500">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-xl font-semibold mb-6">Quick Links</h4>
+          <ul class="space-y-3">
+            <li><a href="index.html" class="text-gray-400 hover:text-green-500">Home</a></li>
+            <li><a href="about.html" class="text-gray-400 hover:text-green-500">About Us</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-green-500">Services</a></li>
+            <li><a href="team.html" class="text-gray-400 hover:text-green-500">Our Team</a></li>
+            <li><a href="testimonials.html" class="text-gray-400 hover:text-green-500">Testimonials</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-green-500">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-xl font-semibold mb-6">Our Services</h4>
+          <ul class="space-y-3">
+            <li><a href="services.html" class="text-gray-400 hover:text-green-500">Naturopathy Camps</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-green-500">Herbal Treatments</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-green-500">Ayurvedic Massage</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-green-500">Nutritional Counseling</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-green-500">Meditation & Yoga</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-green-500">Detoxification Programs</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-xl font-semibold mb-6">Newsletter</h4>
+          <p class="text-gray-400 mb-4">
+            Subscribe to our newsletter for the latest updates on camps, wellness tips, and special offers.
+          </p>
+          <form>
+            <div class="flex">
+              <input type="email" placeholder="Your Email" class="px-4 py-2 w-full rounded-l-md focus:outline-none text-gray-900">
+              <button type="submit" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-r-md">
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400 text-sm">
+          &copy; 2025 AyurvedaHarmony. All rights reserved.
+        </p>
+        <div class="mt-4 md:mt-0">
+          <a href="#" class="text-gray-400 hover:text-green-500 text-sm mr-4">Privacy Policy</a>
+          <a href="#" class="text-gray-400 hover:text-green-500 text-sm mr-4">Terms of Service</a>
+          <a href="#" class="text-gray-400 hover:text-green-500 text-sm">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="translations.js"></script>
+  <script src="script.js"></script>
+  <script src="language-switcher.js"></script>
+  
+  <!-- Animation Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize GSAP
+      gsap.registerPlugin(ScrollTrigger);
+      
+      // Get elements
+      const walkingMan = document.getElementById('walking-man');
+      const yogaMan = document.getElementById('yoga-man');
+      const storyText = document.getElementById('story-text');
+      const storyBgImage = document.getElementById('story-bg-image');
+      const animationContainer = document.getElementById('animation-container');
+      const storySection = document.getElementById('our-story-section');
+      
+      // Set initial styles for walking man
+      walkingMan.style.display = 'block';
+      walkingMan.style.right = '-150px'; // Start off-screen to the right
+      walkingMan.style.animation = 'walking 0.8s infinite';
+      
+      // Create GSAP timeline
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: storySection,
+          start: "top center",
+          end: "bottom bottom",
+          toggleActions: "play none none none"
+        }
+      });
+      
+      // Animation sequence
+      tl.to(walkingMan, {
+        x: -window.innerWidth + 150, // Walk across the screen
+        duration: 3,
+        ease: "power1.inOut"
+      })
+      .to(walkingMan, {
+        opacity: 0,
+        duration: 0.5,
+        onComplete: function() {
+          walkingMan.style.animation = 'none'; // Stop walking animation
+        }
+      }, "-=0.5") // Overlap with previous animation
+      .to(yogaMan, {
+        opacity: 1,
+        duration: 1,
+        ease: "power2.inOut"
+      }, "-=0.3")
+      .to(storyText, {
+        opacity: 1,
+        duration: 1
+      }, "-=0.7")
+      .to(storyText.querySelectorAll('p'), {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        stagger: 0.3,
+        ease: "power2.out"
+      }, "-=0.5")
+      .to(storyBgImage, {
+        opacity: 1,
+        duration: 1,
+        onComplete: function() {
+          animationContainer.classList.add('animation-complete');
+        }
+      }, "-=1");
+      
+      // Make animation responsive
+      window.addEventListener('resize', function() {
+        // Update animation parameters if needed
+        tl.invalidate().restart(); // Restart the animation with new window dimensions
+      });
+    });
+  </script>
+</body>
+</html>

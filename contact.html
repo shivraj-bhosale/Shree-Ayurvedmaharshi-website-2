@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Ayurveda Harmony</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="font-sans bg-gray-50 text-gray-800">
+  <!-- Navigation -->
+  <nav id="navbar" class="fixed w-full z-50 bg-white shadow-md">
+    <div class="container mx-auto px-6 py-3">
+      <div class="flex justify-between items-center">
+        <a href="index.html" class="flex items-center">
+          <span class="text-2xl font-bold text-green-800">Ayurveda<span class="text-green-600">Harmony</span></span>
+        </a>
+        
+        <div class="hidden md:flex space-x-8">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="services.html" class="nav-link">Services</a>
+          <a href="team.html" class="nav-link">Team</a>
+          <a href="testimonials.html" class="nav-link">Testimonials</a>
+          <a href="contact.html" class="nav-link active">Contact</a>
+        </div>
+        
+        <div class="md:hidden">
+          <button id="menu-toggle" class="focus:outline-none">
+            <svg class="h-6 w-6 text-green-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+      <div class="container mx-auto px-6 py-3 flex flex-col space-y-4">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="about.html" class="mobile-nav-link">About</a>
+        <a href="services.html" class="mobile-nav-link">Services</a>
+        <a href="team.html" class="mobile-nav-link">Team</a>
+        <a href="testimonials.html" class="mobile-nav-link">Testimonials</a>
+        <a href="contact.html" class="mobile-nav-link active">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header bg-cover bg-center" style="background-image: url('public/images/contact-bg.png')">
+    <div class="container mx-auto px-6 py-32 text-center">
+      <h1 data-aos="fade-up" class="text-4xl md:text-5xl font-bold text-white mb-4">Contact Us</h1>
+      <p data-aos="fade-up" data-aos-delay="200" class="text-xl text-white">Get in touch with our team to begin your healing journey</p>
+    </div>
+  </section>
+
+  <!-- Contact Information -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 data-aos="fade-up" class="section-title">Get In Touch</h2>
+        <div data-aos="fade-up" data-aos-delay="200" class="section-divider"></div>
+        <p data-aos="fade-up" data-aos-delay="400" class="max-w-3xl mx-auto text-gray-600 mt-6">
+          Have questions about our services or want to book a consultation? Reach out to us and our team will get back to you shortly.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Contact Card 1 -->
+        <div data-aos="fade-up" data-aos-delay="100" class="bg-green-50 rounded-lg p-8 text-center" style="background-color: var(--primary-color);">
+          <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6" style="background-color: var(--primary-dark);">
+            <i class="fas fa-map-marker-alt text-white text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-green-800 mb-3">Our Location</h3>
+          <p class="text-gray-600">
+            123 Ayurveda Way, Nature Valley<br>
+            Rishikesh, Uttarakhand 249201<br>
+            India
+          </p>
+        </div>
+        
+        <!-- Contact Card 2 -->
+        <div data-aos="fade-up" data-aos-delay="200" class="bg-green-50 rounded-lg p-8 text-center">
+          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-phone-alt text-green-600 text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-green-800 mb-3">Phone Numbers</h3>
+          <p class="text-gray-600 mb-2">
+            <span class="font-medium">Main Office:</span> +91 98765 43210
+          </p>
+          <p class="text-gray-600 mb-2">
+            <span class="font-medium">Bookings:</span> +91 98765 43211
+          </p>
+          <p class="text-gray-600">
+            <span class="font-medium">WhatsApp:</span> +91 98765 43212
+          </p>
+        </div>
+        
+        <!-- Contact Card 3 -->
+        <div data-aos="fade-up" data-aos-delay="300" class="bg-green-50 rounded-lg p-8 text-center">
+          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-envelope text-green-600 text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-green-800 mb-3">Email Addresses</h3>
+          <p class="text-gray-600 mb-2">
+            <span class="font-medium">General Inquiries:</span><br>
+            info@ayurvedaharmony.com
+          </p>
+          <p class="text-gray-600 mb-2">
+            <span class="font-medium">Bookings:</span><br>
+            bookings@ayurvedaharmony.com
+          </p>
+          <p class="text-gray-600">
+            <span class="font-medium">Support:</span><br>
+            support@ayurvedaharmony.com
+          </p>
+        </div>
+      </div>
+      
+      <div data-aos="fade-up" data-aos-delay="400" class="mt-12 bg-green-50 rounded-lg p-6 text-center">
+        <h3 class="text-xl font-semibold text-green-800 mb-3">Working Hours</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+          <div>
+            <p class="font-medium text-gray-800">Monday - Friday</p>
+            <p class="text-gray-600">8:00 AM - 6:00 PM</p>
+          </div>
+          <div>
+            <p class="font-medium text-gray-800">Saturday</p>
+            <p class="text-gray-600">9:00 AM - 4:00 PM</p>
+          </div>
+          <div>
+            <p class="font-medium text-gray-800">Sunday</p>
+            <p class="text-gray-600">Closed (Except for Naturopathy Camps)</p>
+          </div>
+          <div>
+            <p class="font-medium text-gray-800">Naturopathy Camps</p>
+            <p class="text-gray-600">As per schedule</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="py-20 bg-green-50">
+    <div class="container mx-auto px-6">
+      <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden">
+        <div class="md:flex">
+          <div class="md:w-1/2 bg-green-600 p-8 md:p-12 text-white" style="background-color: var(--accent-color);">
+            <h2 data-aos="fade-right" class="text-3xl font-bold mb-6">Send Us a Message</h2>
+            <p data-aos="fade-right" data-aos-delay="200" class="mb-6">
+              Fill out the form and our team will get back to you within 24 hours. We're here to answer any questions you may have about our services, treatments, or upcoming naturopathy camps.
+            </p>
+            <div data-aos="fade-right" data-aos-delay="300" class="mb-8">
+              <h3 class="font-semibold mb-3">Connect With Us</h3>
+              <div class="flex space-x-4">
+                <a href="#" class="text-white hover:text-green-200">
+                  <i class="fab fa-facebook-f text-xl"></i>
+                </a>
+                <a href="#" class="text-white hover:text-green-200">
+                  <i class="fab fa-twitter text-xl"></i>
+                </a>
+                <a href="#" class="text-white hover:text-green-200">
+                  <i class="fab fa-instagram text-xl"></i>
+                </a>
+                <a href="#" class="text-white hover:text-green-200">
+                  <i class="fab fa-youtube text-xl"></i>
+                </a>
+              </div>
+            </div>
+            <div data-aos="fade-right" data-aos-delay="400">
+              <p class="italic text-green-100">
+                "The journey to wellness begins with a single step. Reach out today and start your path to holistic health."
+              </p>
+              <p class="mt-2 font-medium">- Dr. Arjun Sharma, Founder</p>
+            </div>
+          </div>
+          
+          <div class="md:w-1/2 p-8 md:p-12">
+            <form data-aos="fade-left">
+              <div class="mb-6">
+                <label for="name" class="block text-gray-700 mb-2">Your Name</label>
+                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600">
+              </div>
+              
+              <div class="mb-6">
+                <label for="email" class="block text-gray-700 mb-2">Your Email</label>
+                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600">
+              </div>
+              
+              <div class="mb-6">
+                <label for="phone" class="block text-gray-700 mb-2">Phone Number</label>
+                <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600">
+              </div>
+              
+              <div class="mb-6">
+                <label for="subject" class="block text-gray-700 mb-2">Subject</label>
+                <select id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600">
+                  <option value="">Select a subject</option>
+                  <option value="general">General Inquiry</option>
+                  <option value="booking">Service Booking</option>
+                  <option value="camp">Naturopathy Camp</option>
+                  <option value="feedback">Feedback</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              
+              <div class="mb-6">
+                <label for="message" class="block text-gray-700 mb-2">Your Message</label>
+                <textarea id="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-600"></textarea>
+              </div>
+              
+              <div class="flex items-center mb-6">
+                <input type="checkbox" id="newsletter" class="mr-2">
+                <label for="newsletter" class="text-gray-600 text-sm">Subscribe to our newsletter for updates on new services, wellness tips, and special offers.</label>
+              </div>
+              
+              <button type="submit" class="btn-primary w-full">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 data-aos="fade-up" class="section-title">Find Us</h2>
+        <div data-aos="fade-up" data-aos-delay="200" class="section-divider"></div>
+        <p data-aos="fade-up" data-aos-delay="400" class="max-w-3xl mx-auto text-gray-600 mt-6">
+          Our center is located in the serene foothills of Rishikesh, surrounded by natural beauty and tranquility.
+        </p>
+      </div>
+      
+      <div data-aos="fade-up" data-aos-delay="500" class="rounded-lg overflow-hidden shadow-lg">
+        <div class="h-96 bg-gray-200 flex items-center justify-center">
+          <div class="text-center">
+            <i class="fas fa-map-marked-alt text-4xl text-gray-400 mb-4"></i>
+            <p class="text-gray-600">Interactive Map Would Be Displayed Here</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div data-aos="fade-right" class="bg-green-50 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold text-green-800 mb-4">Directions</h3>
+          <div class="space-y-4">
+            <div class="flex items-start">
+              <div class="text-green-600 mr-3">
+                <i class="fas fa-plane"></i>
+              </div>
+              <div>
+                <h4 class="font-medium text-gray-800">By Air</h4>
+                <p class="text-gray-600">The nearest airport is Jolly Grant Airport in Dehradun, approximately 35 km away. We can arrange airport transfers upon request.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="text-green-600 mr-3">
+                <i class="fas fa-train"></i>
+              </div>
+              <div>
+                <h4 class="font-medium text-gray-800">By Train</h4>
+                <p class="text-gray-600">Rishikesh Railway Station is 10 km from our center. Regular trains connect from Delhi, Haridwar, and other major cities.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="text-green-600 mr-3">
+                <i class="fas fa-bus"></i>
+              </div>
+              <div>
+                <h4 class="font-medium text-gray-800">By Bus</h4>
+                <p class="text-gray-600">Regular bus services operate from Delhi, Haridwar, and Dehradun to Rishikesh. The bus stand is 8 km from our center.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="text-green-600 mr-3">
+                <i class="fas fa-car"></i>
+              </div>
+              <div>
+                <h4 class="font-medium text-gray-800">By Car</h4>
+                <p class="text-gray-600">If you're driving, we have ample parking space available. The drive from Delhi takes approximately 6-7 hours.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div data-aos="fade-left" class="bg-green-50 p-6 rounded-lg">
+          <h3 class="text-xl font-semibold text-green-800 mb-4">Nearby Attractions</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <span class="text-green-600 mr-2"><i class="fas fa-leaf"></i></span>
+              <span class="text-gray-600">Rajaji National Park (15 km)</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-600 mr-2"><i class="fas fa-water"></i></span>
+              <span class="text-gray-600">Ganges River (5 km)</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-600 mr-2"><i class="fas fa-mountain"></i></span>
+              <span class="text-gray-600">Neelkanth Mahadev Temple (20 km)</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-600 mr-2"><i class="fas fa-om"></i></span>
+              <span class="text-gray-600">Triveni Ghat (7 km)</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-600 mr-2"><i class="fas fa-hiking"></i></span>
+              <span class="text-gray-600">Kunjapuri Temple Trek (25 km)</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-600 mr-2"><i class="fas fa-bridge"></i></span>
+              <span class="text-gray-600">Laxman Jhula (6 km)</span>
+            </li>
+          </ul>
+          
+          <div class="mt-6">
+            <h4 class="font-medium text-gray-800 mb-2">Accommodation</h4>
+            <p class="text-gray-600">
+              We offer on-site accommodation for naturopathy camp participants. For other visitors, there are several hotels and guesthouses within 5 km of our center.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-20 bg-green-50">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 data-aos="fade-up" class="section-title">Frequently Asked Questions</h2>
+        <div data-aos="fade-up" data-aos-delay="200" class="section-divider"></div>
+        <p data-aos="fade-up" data-aos-delay="400" class="max-w-3xl mx-auto text-gray-600 mt-6">
+          Find answers to common questions about our services, bookings, and facilities.
+        </p>
+      </div>
+      
+      <div class="max-w-3xl mx-auto">
+        <!-- FAQ Item 1 -->
+        <div data-aos="fade-up" data-aos-delay="100" class="mb-6">
+          <button class="faq-question w-full flex justify-between items-center bg-white p-4 rounded-lg shadow-sm">
+            <span class="font-semibold text-green-800">How do I book a consultation?</span>
+            <i class="fas fa-chevron-down text-green-600 transition-transform"></i>
+          </button>
+          <div class="faq-answer bg-white px-4 pb-4 rounded-b-lg shadow-sm hidden">
+            <p class="text-gray-600 pt-2">
+              You can book a consultation by filling out the contact form on this page, calling our booking number, or sending an email to bookings@ayurvedaharmony.com. Our team will get back to you within 24 hours to confirm your appointment.
+            </p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 2 -->
+        <div data-aos="fade-up" data-aos-delay="200" class="mb-6">
+          <button class="faq-question w-full flex justify-between items-center bg-white p-4 rounded-lg shadow-sm">
+            <span class="font-semibold text-green-800">What should I bring for a naturopathy camp?</span>
+            <i class="fas fa-chevron-down text-green-600 transition-transform"></i>
+          </button>
+          <div class="faq-answer bg-white px-4 pb-4 rounded-b-lg shadow-sm hidden">
+            <p class="text-gray-600 pt-2">
+              For naturopathy camps, we recommend bringing comfortable clothing, yoga attire, personal toiletries, any current medications, and a journal to track your progress. We provide all treatment materials, yoga mats, and bedding for accommodation.
+            </p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 3 -->
+        <div data-aos="fade-up" data-aos-delay="300" class="mb-6">
+          <button class="faq-question w-full flex justify-between items-center bg-white p-4 rounded-lg shadow-sm">
+            <span class="font-semibold text-green-800">Do you offer online consultations?</span>
+            <i class="fas fa-chevron-down text-green-600 transition-transform"></i>
+          </button>
+          <div class="faq-answer bg-white px-4 pb-4 rounded-b-lg shadow-sm hidden">
+            <p class="text-gray-600 pt-2">
+              Yes, we offer online consultations for clients who cannot visit our center in person. While some treatments require in-person visits, our practitioners can provide initial assessments, follow-ups, and nutritional counseling via video calls.
+            </p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 4 -->
+        <div data-aos="fade-up" data-aos-delay="400" class="mb-6">
+          <button class="faq-question w-full flex justify-between items-center bg-white p-4 rounded-lg shadow-sm">
+            <span class="font-semibold text-green-800">Are your herbal products available for purchase online?</span>
+            <i class="fas fa-chevron-down text-green-600 transition-transform"></i>
+          </button>
+          <div class="faq-answer bg-white px-4 pb-4 rounded-b-lg shadow-sm hidden">
+            <p class="text-gray-600 pt-2">
+              Yes, we have an online store where you can purchase our range of herbal products, formulations, and wellness items. However, personalized herbal formulations require a consultation with our practitioners before ordering.
+            </p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 5 -->
+        <div data-aos="fade-up" data-aos-delay="500" class="mb-6">
+          <button class="faq-question w-full flex justify-between items-center bg-white p-4 rounded-lg shadow-sm">
+            <span class="font-semibold text-green-800">What payment methods do you accept?</span>
+            <i class="fas fa-chevron-down text-green-600 transition-transform"></i>
+          </button>
+          <div class="faq-answer bg-white px-4 pb-4 rounded-b-lg shadow-sm hidden">
+            <p class="text-gray-600 pt-2">
+              We accept cash, all major credit/debit cards, UPI payments, bank transfers, and digital wallets. For naturopathy camps, we require a 50% advance payment to secure your spot, with the balance due upon arrival.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div data-aos="fade-up" data-aos-delay="600" class="text-center mt-12">
+        <p class="text-gray-600 mb-4">Don't see your question here?</p>
+        <a href="#" class="btn-secondary">View All FAQs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-16 bg-green-800 text-white">
+    <div class="container mx-auto px-6 text-center">
+      <h2 data-aos="fade-up" class="text-3xl md:text-4xl font-bold mb-6">Ready to Begin Your Healing Journey?</h2>
+      <p data-aos="fade-up" data-aos-delay="200" class="text-xl mb-8 max-w-3xl mx-auto">
+        Join our upcoming naturopathy camp and experience the transformative power of Ayurvedic healing.
+      </p>
+      <div data-aos="fade-up" data-aos-delay="400">
+        <a href="#" class="btn-white mr-4">Book Your Spot</a>
+        <a href="services.html" class="btn-outline">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-2xl font-bold mb-6">Ayurveda<span class="text-green-500">Harmony</span></h3>
+          <p class="text-gray-400 mb-6">
+            Reconnect with nature's healing wisdom through our authentic Ayurvedic treatments and naturopathy programs.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-green-500">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-green-500">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-green-500">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-green-500">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-xl font-semibold mb-6">Quick Links</h4>
+          <ul class="space-y-3">
+            <li><a href="index.html" class="text-gray-400 hover:text-green-500">Home</a></li>
+            <li><a href="about.html" class="text-gray-400 hover:text-green-500">About Us</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-green-500">Services</a></li>
+            <li><a href="team.html" class="text-gray-400 hover:text-green-500">Our Team</a></li>
+            <li><a href="testimonials.html" class="text-gray-400 hover:text-green-500">Testimonials</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-green-500">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-xl font-semibold mb-6">Our Services</h4>
+          <ul class="space-y-3">
+            <li><a href="services.html" class="text-gray-400 hover:text-green-500">Naturopathy Camps</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-green-500">Herbal Treatments</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-green-500">Ayurvedic Massage</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-green-500">Nutritional Counseling</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-green-500">Meditation & Yoga</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-green-500">Detoxification Programs</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-xl font-semibold mb-6">Newsletter</h4>
+          <p class="text-gray-400 mb-4">
+            Subscribe to our newsletter for the latest updates on camps, wellness tips, and special offers.
+          </p>
+          <form>
+            <div class="flex">
+              <input type="email" placeholder="Your Email" class="px-4 py-2 w-full rounded-l-md focus:outline-none text-gray-900">
+              <button type="submit" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-r-md">
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400 text-sm">
+          &copy; 2025 AyurvedaHarmony. All rights reserved.
+        </p>
+        <div class="mt-4 md:mt-0">
+          <a href="#" class="text-gray-400 hover:text-green-500 text-sm mr-4">Privacy Policy</a>
+          <a href="#" class="text-gray-400 hover:text-green-500 text-sm mr-4">Terms of Service</a>
+          <a href="#" class="text-gray-400 hover:text-green-500 text-sm">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
