@@ -1,485 +1,557 @@
 <!DOCTYPE html>
-<html lang="en" data-language="english">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shree Ayurvedmaharshi | Natural Healing & Wellness</title>
+  <title>Our Services | Ayurveda Harmony</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Swiper JS for Carousel -->
-  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
-  <!-- GSAP for animations -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
 </head>
-<!-- Add class to body for home page specific styling -->
-<body class="font-sans bg-gray-50 text-gray-800 home-page">
+<body class="font-sans bg-gray-50 text-gray-800">
   <!-- Navigation -->
-  <nav id="navbar" class="w-full">
+  <nav id="navbar" class="fixed w-full z-50 bg-white shadow-md">
     <div class="container mx-auto px-6 py-3">
       <div class="flex justify-between items-center">
-        <!-- Update the logo container to be transparent -->
-        <a href="index.html" class="flex items-center bg-transparent">
-          <!-- Add class to ensure logo is transparent -->
-          <img src="public/images/shree-ayurvedmaharshi-logo.svg" alt="Shree Ayurvedmaharshi" class="h-24 logo-image"> 
+        <a href="index.html" class="flex items-center">
+          <img src="public/images/shree-ayurvedmaharshi-logo.svg" alt="Shree Ayurvedmaharshi" class="h-20">
         </a>
         
         <div class="hidden md:flex items-center">
-          <div class="space-x-8 mr-8">
-            <a href="index.html" class="nav-link active" data-key="home">Home</a>
-            <a href="about.html" class="nav-link" data-key="about">About</a>
-            <a href="services.html" class="nav-link" data-key="services">Services</a>
-            <a href="team.html" class="nav-link" data-key="team">Team</a>
-            <a href="testimonials.html" class="nav-link" data-key="testimonials">Testimonials</a>
-            <a href="contact.html" class="nav-link" data-key="contact">Contact</a>
-          </div>
-          
-          <!-- Language Switcher -->
-          <div class="relative language-switcher">
-            <button id="language-toggle" class="flex items-center space-x-1 bg-green-50 hover:bg-green-100 text-green-800 px-3 py-2 rounded-md transition-colors">
-              <i class="fas fa-globe text-green-600"></i>
-              <span id="current-language">English</span>
-              <i class="fas fa-chevron-down text-xs"></i>
-            </button>
-            <div id="language-dropdown" class="absolute right-0 mt-2 w-36 bg-white rounded-md shadow-lg py-1 z-50 hidden">
-              <a href="#" class="language-option block px-4 py-2 text-sm text-gray-700 hover:bg-green-50" data-lang="english">English</a>
-              <a href="#" class="language-option block px-4 py-2 text-sm text-gray-700 hover:bg-green-50" data-lang="marathi">मराठी (Marathi)</a>
-            </div>
-          </div>
-        </div>
+  <div class="space-x-8 mr-8">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="services.html" class="nav-link active">Services</a>
+    <a href="team.html" class="nav-link">Team</a>
+    <a href="testimonials.html" class="nav-link">Testimonials</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+  </div>
+  
+  <!-- Language Switcher -->
+  <div class="relative language-switcher">
+    <button id="language-toggle" class="flex items-center space-x-1 bg-green-50 hover:bg-green-100 text-green-800 px-3 py-2 rounded-md transition-colors">
+      <i class="fas fa-globe text-green-600"></i>
+      <span id="current-language">English</span>
+      <i class="fas fa-chevron-down text-xs"></i>
+    </button>
+    <div id="language-dropdown" class="absolute right-0 mt-2 w-36 bg-white rounded-md shadow-lg py-1 z-50 hidden">
+      <a href="#" class="language-option block px-4 py-2 text-sm text-gray-700 hover:bg-green-50" data-lang="english">English</a>
+      <a href="#" class="language-option block px-4 py-2 text-sm text-gray-700 hover:bg-green-50" data-lang="marathi">मराठी (Marathi)</a>
+    </div>
+  </div>
+</div>
         
-        <div class="md:hidden flex items-center">
-          <!-- Mobile Language Switcher -->
-          <div class="relative language-switcher mr-4">
-            <button id="mobile-language-toggle" class="flex items-center space-x-1 bg-green-50 hover:bg-green-100 text-green-800 px-2 py-1 rounded-md transition-colors">
-              <i class="fas fa-globe text-green-600"></i>
-              <span id="mobile-current-language">EN</span>
-            </button>
-            <div id="mobile-language-dropdown" class="absolute right-0 mt-2 w-36 bg-white rounded-md shadow-lg py-1 z-50 hidden">
-              <a href="#" class="language-option block px-4 py-2 text-sm text-gray-700 hover:bg-green-50" data-lang="english">English</a>
-              <a href="#" class="language-option block px-4 py-2 text-sm text-gray-700 hover:bg-green-50" data-lang="marathi">मराठी (Marathi)</a>
-            </div>
-          </div>
-          
-          <button id="menu-toggle" class="focus:outline-none">
-            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-          </button>
-        </div>
+        <div class="md:hidden">
+  <!-- Mobile Language Switcher -->
+  <div class="relative language-switcher mr-4">
+    <button id="mobile-language-toggle" class="flex items-center space-x-1 bg-green-50 hover:bg-green-100 text-green-800 px-2 py-1 rounded-md transition-colors">
+      <i class="fas fa-globe text-green-600"></i>
+      <span id="mobile-current-language">EN</span>
+    </button>
+    <div id="mobile-language-dropdown" class="absolute right-0 mt-2 w-36 bg-white rounded-md shadow-lg py-1 z-50 hidden">
+      <a href="#" class="language-option block px-4 py-2 text-sm text-gray-700 hover:bg-green-50" data-lang="english">English</a>
+      <a href="#" class="language-option block px-4 py-2 text-sm text-gray-700 hover:bg-green-50" data-lang="marathi">मराठी (Marathi)</a>
+    </div>
+  </div>
+  
+  <button id="menu-toggle" class="focus:outline-none">
+    <svg class="h-6 w-6 text-green-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+    </svg>
+  </button>
+</div>
       </div>
     </div>
     
     <!-- Mobile menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
       <div class="container mx-auto px-6 py-3 flex flex-col space-y-4">
-        <a href="index.html" class="mobile-nav-link active" data-key="home">Home</a>
-        <a href="about.html" class="mobile-nav-link" data-key="about">About</a>
-        <a href="services.html" class="mobile-nav-link" data-key="services">Services</a>
-        <a href="team.html" class="mobile-nav-link" data-key="team">Team</a>
-        <a href="testimonials.html" class="mobile-nav-link" data-key="testimonials">Testimonials</a>
-        <a href="contact.html" class="mobile-nav-link" data-key="contact">Contact</a>
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="about.html" class="mobile-nav-link">About</a>
+        <a href="services.html" class="mobile-nav-link active">Services</a>
+        <a href="team.html" class="mobile-nav-link">Team</a>
+        <a href="testimonials.html" class="mobile-nav-link">Testimonials</a>
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
       </div>
     </div>
   </nav>
 
-  <!-- Rest of the HTML remains unchanged -->
-  <!-- Main content with padding to account for fixed navbar -->
-  <div class="main-content">
-    <!-- Hero Section with Carousel -->
-    <section id="home" class="relative">
-      <!-- Swiper Carousel with simplified approach -->
-      <div class="swiper hero-swiper">
-        <div class="swiper-wrapper">
-          <!-- Slide 1 -->
-          <div class="swiper-slide">
-            <img src="public/images/meditation-bg-1.jpg" alt="Meditation Background" class="full-screen-image">
-          </div>
-          <!-- Slide 2 -->
-          <div class="swiper-slide">
-            <img src="public/images/meditation-bg-2.jpg" alt="Meditation Background" class="full-screen-image">
-          </div>
-          <!-- Slide 3 -->
-          <div class="swiper-slide">
-            <img src="public/images/meditation-bg-3.jpg" alt="Meditation Background" class="full-screen-image">
-          </div>
-        </div>
-        <!-- Add pagination -->
-        <div class="swiper-pagination"></div>
+  <!-- Page Header -->
+  <section class="page-header bg-cover bg-center" style="background-image: url('public/images/services-bg.png')">
+    <div class="container mx-auto px-6 py-32 text-center">
+      <h1 data-aos="fade-up" class="text-4xl md:text-5xl font-bold text-white mb-4">Our Services</h1>
+      <p data-aos="fade-up" data-aos-delay="200" class="text-xl text-white">Comprehensive Ayurvedic treatments and naturopathy programs for holistic wellness</p>
+    </div>
+  </section>
+
+  <!-- Services Overview -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 data-aos="fade-up" class="section-title">Healing Offerings</h2>
+        <div data-aos="fade-up" data-aos-delay="200" class="section-divider"></div>
+        <p data-aos="fade-up" data-aos-delay="400" class="max-w-3xl mx-auto text-gray-600 mt-6">
+          Discover our range of authentic Ayurvedic treatments and naturopathy programs designed to restore balance and promote holistic wellness.
+        </p>
       </div>
       
-      <!-- Hero Content -->
-      <div class="hero-content-wrapper">
-        <div class="container mx-auto px-6 text-center">
-          <h1 data-aos="fade-up" data-aos-duration="1000" class="text-4xl md:text-6xl font-bold text-white leading-tight mb-6 drop-shadow-lg" data-key="heroTitle">
-            Natural Healing Through <br>Ancient Wisdom
-          </h1>
-          <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto drop-shadow-lg" data-key="heroSubtitle">
-            Experience the transformative power of Ayurvedic healing at our immersive naturopathy camps
-          </p>
-          <!-- Update the hero section buttons to use the new color scheme -->
-          <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-            <a href="#about" class="btn-primary mr-4" data-key="discoverMore">Discover More</a>
-            <a href="contact.html" class="btn-secondary" data-key="joinCamp">Join Our Camp</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2 data-aos="fade-up" class="section-title" data-key="aboutUs">About Us</h2>
-          <div data-aos="fade-up" data-aos-delay="200" class="section-divider"></div>
-        </div>
-        
-        <div class="flex flex-col md:flex-row items-center">
-          <div data-aos="fade-right" class="md:w-1/2 mb-10 md:mb-0">
-            <img src="public/images/about-image.png" alt="Ayurvedic healing" class="rounded-lg shadow-xl">
-          </div>
-          
-          <div data-aos="fade-left" class="md:w-1/2 md:pl-12">
-            <h3 class="text-2xl font-semibold text-green-800 mb-4" data-key="healingPhilosophy">Our Healing Philosophy</h3>
-            <p class="mb-6 text-gray-600" data-key="aboutDesc1">
-              Founded on the ancient principles of Ayurveda, our center brings together traditional wisdom and modern naturopathic approaches to create a holistic healing experience. We believe in the body's innate ability to heal itself when provided with the right environment and support.
-            </p>
-            <p class="mb-6 text-gray-600" data-key="aboutDesc2">
-              Our naturopathy camps are designed to reconnect you with nature's healing elements - earth, water, fire, air, and ether - while teaching you practical techniques to maintain balance in your daily life.
-            </p>
-            
-            <div class="grid grid-cols-2 gap-4 mb-8">
-              <div class="flex items-start">
-                <div class="text-green-600 mr-3">
-                  <i class="fas fa-leaf text-xl"></i>
-                </div>
-                <div>
-                  <h4 class="font-medium text-gray-800" data-key="organicApproach">Organic Approach</h4>
-                  <p class="text-sm text-gray-600" data-key="naturalTreatments">100% natural treatments</p>
-                </div>
-              </div>
-              
-              <div class="flex items-start">
-                <div class="text-green-600 mr-3">
-                  <i class="fas fa-balance-scale text-xl"></i>
-                </div>
-                <div>
-                  <h4 class="font-medium text-gray-800" data-key="balancedLiving">Balanced Living</h4>
-                  <p class="text-sm text-gray-600" data-key="mindBodyHarmony">Mind-body harmony</p>
-                </div>
-              </div>
-              
-              <div class="flex items-start">
-                <div class="text-green-600 mr-3">
-                  <i class="fas fa-hands text-xl"></i>
-                </div>
-                <div>
-                  <h4 class="font-medium text-gray-800" data-key="personalizedCare">Personalized Care</h4>
-                  <p class="text-sm text-gray-600" data-key="tailoredDosha">Tailored to your dosha</p>
-                </div>
-              </div>
-              
-              <div class="flex items-start">
-                <div class="text-green-600 mr-3">
-                  <i class="fas fa-seedling text-xl"></i>
-                </div>
-                <div>
-                  <h4 class="font-medium text-gray-800" data-key="sustainableWellness">Sustainable Wellness</h4>
-                  <p class="text-sm text-gray-600" data-key="longTermSolutions">Long-term health solutions</p>
-                </div>
-              </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Service cards will now use the updated styles from CSS -->
+        <!-- Service 1 -->
+        <div data-aos="fade-up" data-aos-delay="100" class="service-card-detailed">
+          <div class="relative overflow-hidden rounded-t-lg">
+            <img src="public/images/naturopathy-camp.png" alt="Naturopathy Camps" class="w-full h-64 object-cover">
+            <div class="absolute top-4 left-4 bg-green-600 text-white text-sm font-semibold px-3 py-1 rounded-full">
+              Signature Program
             </div>
-            
-            <a href="about.html" class="btn-primary" data-key="learnMoreAbout">Learn More About Us</a>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-20 bg-green-50">
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2 data-aos="fade-up" class="section-title" data-key="ourServices">Our Services</h2>
-          <div data-aos="fade-up" data-aos-delay="200" class="section-divider"></div>
-          <p data-aos="fade-up" data-aos-delay="400" class="max-w-3xl mx-auto text-gray-600 mt-6" data-key="servicesDesc">
-            Discover our comprehensive range of Ayurvedic treatments and naturopathy programs designed to restore balance and promote holistic wellness.
-          </p>
-        </div>
-        
-        <!-- Update the service cards to use the new color scheme -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Service 1 -->
-          <div data-aos="fade-up" data-aos-delay="100" class="service-card p-6 flex flex-col h-full">
-            <div class="service-icon mx-auto mb-6">
+          <div class="p-6">
+            <div class="service-icon-detailed">
               <i class="fas fa-spa"></i>
             </div>
-            <h3 class="text-xl font-semibold text-green-800 mb-4 text-center" data-key="naturopathyCamps">Naturopathy Camps</h3>
-            <p class="text-gray-600 mb-6 text-center flex-grow" data-key="naturopathyDesc">
-              Immersive multi-day retreats focused on natural healing through Ayurvedic principles, meditation, and reconnection with nature.
+            <h3 class="text-2xl font-semibold text-green-800 mb-4">Naturopathy Camps</h3>
+            <p class="text-gray-600 mb-6">
+              Our immersive multi-day retreats focus on natural healing through Ayurvedic principles, meditation, and reconnection with nature. These camps provide a comprehensive approach to wellness, addressing physical, mental, and spiritual aspects of health.
             </p>
-            <a href="services.html" class="text-green-600 hover:text-green-800 font-medium inline-flex items-center justify-center mt-auto">
-              <span data-key="learnMore">Learn More</span>
-              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-              </svg>
-            </a>
+            <div class="mb-6">
+              <h4 class="font-medium text-gray-800 mb-2">Key Features:</h4>
+              <ul class="space-y-2">
+                <li class="flex items-start">
+                  <span class="text-green-600 mr-2"><i class="fas fa-check-circle"></i></span>
+                  <span class="text-gray-600">Personalized Ayurvedic assessment</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-600 mr-2"><i class="fas fa-check-circle"></i></span>
+                  <span class="text-gray-600">Daily yoga and meditation sessions</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-600 mr-2"><i class="fas fa-check-circle"></i></span>
+                  <span class="text-gray-600">Nature walks and forest bathing</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-600 mr-2"><i class="fas fa-check-circle"></i></span>
+                  <span class="text-gray-600">Ayurvedic cooking workshops</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-600 mr-2"><i class="fas fa-check-circle"></i></span>
+                  <span class="text-gray-600">Therapeutic treatments</span>
+                </li>
+              </ul>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-green-800 font-semibold">Duration: 3-7 days</span>
+              <a href="contact.html" class="btn-primary-sm">Book Now</a>
+            </div>
           </div>
-          
-          <!-- Service 2 -->
-          <div data-aos="fade-up" data-aos-delay="200" class="service-card p-6 flex flex-col h-full">
-            <div class="service-icon mx-auto mb-6">
+        </div>
+        
+        <!-- Service 2 -->
+        <div data-aos="fade-up" data-aos-delay="200" class="service-card-detailed">
+          <div class="relative overflow-hidden rounded-t-lg">
+            <img src="public/images/herbal-treatment.png" alt="Herbal Treatments" class="w-full h-64 object-cover">
+          </div>
+          <div class="p-6">
+            <div class="service-icon-detailed">
               <i class="fas fa-mortar-pestle"></i>
             </div>
-            <h3 class="text-xl font-semibold text-green-800 mb-4 text-center" data-key="herbalTreatments">Herbal Treatments</h3>
-            <p class="text-gray-600 mb-6 text-center flex-grow" data-key="herbalDesc">
-              Customized herbal formulations and treatments based on your unique constitution to address specific health concerns.
+            <h3 class="text-2xl font-semibold text-green-800 mb-4">Herbal Treatments</h3>
+            <p class="text-gray-600 mb-6">
+              Our customized herbal formulations and treatments are based on your unique constitution to address specific health concerns. We use authentic herbs sourced from organic farms to ensure the highest quality and efficacy.
             </p>
-            <a href="services.html" class="text-green-600 hover:text-green-800 font-medium inline-flex items-center justify-center mt-auto">
-              <span data-key="learnMore">Learn More</span>
-              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-              </svg>
-            </a>
+            <div class="mb-6">
+              <h4 class="font-medium text-gray-800 mb-2">Key Features:</h4>
+              <ul class="space-y-2">
+                <li class="flex items-start">
+                  <span class="text-green-600 mr-2"><i class="fas fa-check-circle"></i></span>
+                  <span class="text-gray-600">Personalized herbal formulations</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-600 mr-2"><i class="fas fa-check-circle"></i></span>
+                  <span class="text-gray-600">Medicinal oils and pastes</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-600 mr-2"><i class="fas fa-check-circle"></i></span>
+                  <span class="text-gray-600">Herbal steam therapy</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-600 mr-2"><i class="fas fa-check-circle"></i></span>
+                  <span class="text-gray-600">Herbal compress treatments</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-600 mr-2"><i class="fas fa-check-circle"></i></span>
+                  <span class="text-gray-600">Follow-up consultations</span>
+                </li>
+              </ul>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-green-800 font-semibold">Duration: Varies</span>
+              <a href="contact.html" class="btn-primary-sm">Book Now</a>
+            </div>
           </div>
-          
-          <!-- Service 3 -->
-          <div data-aos="fade-up" data-aos-delay="300" class="service-card p-6 flex flex-col h-full">
-            <div class="service-icon mx-auto mb-6">
+        </div>
+        
+        <!-- Service 3 -->
+        <div data-aos="fade-up" data-aos-delay="300" class="service-card-detailed">
+          <div class="relative overflow-hidden rounded-t-lg">
+            <img src="public/images/ayurvedic-massage.png" alt="Ayurvedic Massage" class="w-full h-64 object-cover">
+          </div>
+          <div class="p-6">
+            <div class="service-icon-detailed">
               <i class="fas fa-hands"></i>
             </div>
-            <h3 class="text-xl font-semibold text-green-800 mb-4 text-center" data-key="ayurvedicMassage">Ayurvedic Massage</h3>
-            <p class="text-gray-600 mb-6 text-center flex-grow" data-key="massageDesc">
-              Traditional therapeutic massage techniques using medicated oils to detoxify the body and stimulate vital energy points.
+            <h3 class="text-2xl font-semibold text-green-800 mb-4">Ayurvedic Massage</h3>
+            <p class="text-gray-600 mb-6">
+              Our traditional therapeutic massage techniques use medicated oils to detoxify the body and stimulate vital energy points. These massages not only relax the muscles but also improve circulation and promote the elimination of toxins.
             </p>
-            <a href="services.html" class="text-green-600 hover:text-green-800 font-medium inline-flex items-center justify-center mt-auto">
-              <span data-key="learnMore">Learn More</span>
-              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-              </svg>
-            </a>
+            <div class="mb-6">
+              <h4 class="font-medium text-gray-800 mb-2">Key Features:</h4>
+              <ul class="space-y-2">
+                <li class="flex items-start">
+                  <span class="text-green-600 mr-2"><i class="fas fa-check-circle"></i></span>
+                  <span class="text-gray-600">Abhyanga (full body oil massage)</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-600 mr-2"><i class="fas fa-check-circle"></i></span>
+                  <span class="text-gray-600">Shirodhara (oil flow therapy)</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-600 mr-2"><i class="fas fa-check-circle"></i></span>
+                  <span class="text-gray-600">Marma therapy (energy point massage)</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-600 mr-2"><i class="fas fa-check-circle"></i></span>
+                  <span class="text-gray-600">Udvartana (herbal powder massage)</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-600 mr-2"><i class="fas fa-check-circle"></i></span>
+                  <span class="text-gray-600">Customized therapeutic massages</span>
+                </li>
+              </ul>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-green-800 font-semibold">Duration: 60-90 min</span>
+              <a href="contact.html" class="btn-primary-sm">Book Now</a>
+            </div>
           </div>
-          
-          <!-- Service 4 -->
-          <div data-aos="fade-up" data-aos-delay="400" class="service-card p-6 flex flex-col h-full">
-            <div class="service-icon mx-auto mb-6">
+        </div>
+        
+        <!-- Service 4 -->
+        <div data-aos="fade-up" data-aos-delay="400" class="service-card-detailed">
+          <div class="relative overflow-hidden rounded-t-lg">
+            <img src="public/images/nutritional-counseling.png" alt="Nutritional Counseling" class="w-full h-64 object-cover">
+          </div>
+          <div class="p-6">
+            <div class="service-icon-detailed">
               <i class="fas fa-apple-alt"></i>
             </div>
-            <h3 class="text-xl font-semibold text-green-800 mb-4 text-center" data-key="nutritionalCounseling">Nutritional Counseling</h3>
-            <p class="text-gray-600 mb-6 text-center flex-grow" data-key="nutritionDesc">
-              Personalized dietary guidance based on Ayurvedic principles to optimize digestion and support your unique body type.
+            <h3 class="text-2xl font-semibold text-green-800 mb-4">Nutritional Counseling</h3>
+            <p class="text-gray-600 mb-6">
+              Our personalized dietary guidance is based on Ayurvedic principles to optimize digestion and support your unique body type. We help you understand which foods are most beneficial for your constitution and how to prepare them.
             </p>
-            <a href="services.html" class="text-green-600 hover:text-green-800 font-medium inline-flex items-center justify-center mt-auto">
-              <span data-key="learnMore">Learn More</span>
-              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-              </svg>
-            </a>
+            <div class="mb-6">
+              <h4 class="font-medium text-gray-800 mb-2">Key Features:</h4>
+              <ul class="space-y-2">
+                <li class="flex items-start">
+                  <span class="text-green-600 mr-2"><i class="fas fa-check-circle"></i></span>
+                  <span class="text-gray-600">Dosha-specific dietary plans</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-600 mr-2"><i class="fas fa-check-circle"></i></span>
+                  <span class="text-gray-600">Food combining principles</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-600 mr-2"><i class="fas fa-check-circle"></i></span>
+                  <span class="text-gray-600">Seasonal eating guidelines</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-600 mr-2"><i class="fas fa-check-circle"></i></span>
+                  <span class="text-gray-600">Digestive health optimization</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-600 mr-2"><i class="fas fa-check-circle"></i></span>
+                  <span class="text-gray-600">Cooking demonstrations</span>
+                </li>
+              </ul>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-green-800 font-semibold">Duration: 60 min</span>
+              <a href="contact.html" class="btn-primary-sm">Book Now</a>
+            </div>
           </div>
-          
-          <!-- Service 5 -->
-          <div data-aos="fade-up" data-aos-delay="500" class="service-card p-6 flex flex-col h-full">
-            <div class="service-icon mx-auto mb-6">
+        </div>
+        
+        <!-- Service 5 -->
+        <div data-aos="fade-up" data-aos-delay="500" class="service-card-detailed">
+          <div class="relative overflow-hidden rounded-t-lg">
+            <img src="public/images/meditation-yoga.png" alt="Meditation & Yoga" class="w-full h-64 object-cover">
+          </div>
+          <div class="p-6">
+            <div class="service-icon-detailed">
               <i class="fas fa-brain"></i>
             </div>
-            <h3 class="text-xl font-semibold text-green-800 mb-4 text-center" data-key="meditationYoga">Meditation & Yoga</h3>
-            <p class="text-gray-600 mb-6 text-center flex-grow" data-key="meditationDesc">
-              Guided practices to calm the mind, increase body awareness, and cultivate inner peace through ancient techniques.
+            <h3 class="text-2xl font-semibold text-green-800 mb-4">Meditation & Yoga</h3>
+            <p class="text-gray-600 mb-6">
+              Our guided practices help calm the mind, increase body awareness, and cultivate inner peace through ancient techniques. These sessions are suitable for all levels, from beginners to advanced practitioners.
             </p>
-            <a href="services.html" class="text-green-600 hover:text-green-800 font-medium inline-flex items-center justify-center mt-auto">
-              <span data-key="learnMore">Learn More</span>
-              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-              </svg>
-            </a>
+            <div class="mb-6">
+              <h4 class="font-medium text-gray-800 mb-2">Key Features:</h4>
+              <ul class="space-y-2">
+                <li class="flex items-start">
+                  <span class="text-green-600 mr-2"><i class="fas fa-check-circle"></i></span>
+                  <span class="text-gray-600">Hatha yoga sessions</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-600 mr-2"><i class="fas fa-check-circle"></i></span>
+                  <span class="text-gray-600">Pranayama (breath work)</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-600 mr-2"><i class="fas fa-check-circle"></i></span>
+                  <span class="text-gray-600">Guided meditation</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-600 mr-2"><i class="fas fa-check-circle"></i></span>
+                  <span class="text-gray-600">Mindfulness practices</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-600 mr-2"><i class="fas fa-check-circle"></i></span>
+                  <span class="text-gray-600">Sound healing</span>
+                </li>
+              </ul>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-green-800 font-semibold">Duration: 60-90 min</span>
+              <a href="contact.html" class="btn-primary-sm">Book Now</a>
+            </div>
           </div>
-          
-          <!-- Service 6 -->
-          <div data-aos="fade-up" data-aos-delay="600" class="service-card p-6 flex flex-col h-full">
-            <div class="service-icon mx-auto mb-6">
+        </div>
+        
+        <!-- Service 6 -->
+        <div data-aos="fade-up" data-aos-delay="600" class="service-card-detailed">
+          <div class="relative overflow-hidden rounded-t-lg">
+            <img src="public/images/detox-program.png" alt="Detoxification Programs" class="w-full h-64 object-cover">
+          </div>
+          <div class="p-6">
+            <div class="service-icon-detailed">
               <i class="fas fa-water"></i>
             </div>
-            <h3 class="text-xl font-semibold text-green-800 mb-4 text-center" data-key="detoxPrograms">Detoxification Programs</h3>
-            <p class="text-gray-600 mb-6 text-center flex-grow" data-key="detoxDesc">
-              Comprehensive cleansing protocols to remove toxins, rejuvenate tissues, and restore optimal functioning of body systems.
+            <h3 class="text-2xl font-semibold text-green-800 mb-4">Detoxification Programs</h3>
+            <p class="text-gray-600 mb-6">
+              Our comprehensive cleansing protocols help remove toxins, rejuvenate tissues, and restore optimal functioning of body systems. These programs are carefully designed to be both effective and gentle on the body.
             </p>
-            <a href="services.html" class="text-green-600 hover:text-green-800 font-medium inline-flex items-center justify-center mt-auto">
-              <span data-key="learnMore">Learn More</span>
-              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-        
-        <div class="text-center mt-12">
-          <a href="services.html" class="btn-primary" data-key="viewAllServices">View All Services</a>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- Footer -->
-  <!-- Update the footer to use the new color scheme -->
-  <footer class="bg-gray-900 text-white py-12">
-    <div class="container mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div>
-          <h3 class="text-2xl font-bold mb-6">Shree<span style="color: var(--accent-color);">Ayurvedmaharshi</span></h3>
-          <p class="text-gray-400 mb-6">
-            Reconnect with nature's healing wisdom through our authentic Ayurvedic treatments and naturopathy programs.
-          </p>
-          <div class="flex space-x-4">
-            <a href="#" class="text-gray-400 hover:text-green-500">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-green-500">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-green-500">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-green-500">
-              <i class="fab fa-youtube"></i>
-            </a>
-          </div>
-        </div>
-        
-        <div>
-          <h4 class="text-xl font-semibold mb-6">Quick Links</h4>
-          <ul class="space-y-3">
-            <li><a href="index.html" class="text-gray-400 hover:text-green-500">Home</a></li>
-            <li><a href="about.html" class="text-gray-400 hover:text-green-500">About Us</a></li>
-            <li><a href="services.html" class="text-gray-400 hover:text-green-500">Services</a></li>
-            <li><a href="team.html" class="text-gray-400 hover:text-green-500">Our Team</a></li>
-            <li><a href="testimonials.html" class="text-gray-400 hover:text-green-500">Testimonials</a></li>
-            <li><a href="contact.html" class="text-gray-400 hover:text-green-500">Contact Us</a></li>
-          </ul>
-        </div>
-        
-        <div>
-          <h4 class="text-xl font-semibold mb-6">Our Services</h4>
-          <ul class="space-y-3">
-            <li><a href="services.html" class="text-gray-400 hover:text-green-500">Naturopathy Camps</a></li>
-            <li><a href="services.html" class="text-gray-400 hover:text-green-500">Herbal Treatments</a></li>
-            <li><a href="services.html" class="text-gray-400 hover:text-green-500">Ayurvedic Massage</a></li>
-            <li><a href="services.html" class="text-gray-400 hover:text-green-500">Nutritional Counseling</a></li>
-            <li><a href="services.html" class="text-gray-400 hover:text-green-500">Meditation & Yoga</a></li>
-            <li><a href="services.html" class="text-gray-400 hover:text-green-500">Detoxification Programs</a></li>
-          </ul>
-        </div>
-        
-        <div>
-          <h4 class="text-xl font-semibold mb-6">Newsletter</h4>
-          <p class="text-gray-400 mb-4">
-            Subscribe to our newsletter for the latest updates on camps, wellness tips, and special offers.
-          </p>
-          <form>
-            <div class="flex">
-              <input type="email" placeholder="Your Email" class="px-4 py-2 w-full rounded-l-md focus:outline-none text-gray-900">
-              <button type="submit" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-r-md">
-                <i class="fas fa-paper-plane"></i>
-              </button>
+            <div class="mb-6">
+              <h4 class="font-medium text-gray-800 mb-2">Key Features:</h4>
+              <ul class="space-y-2">
+                <li class="flex items-start">
+                  <span class="text-green-600 mr-2"><i class="fas fa-check-circle"></i></span>
+                  <span class="text-gray-600">Panchakarma therapies</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-600 mr-2"><i class="fas fa-check-circle"></i></span>
+                  <span class="text-gray-600">Herbal cleansing formulations</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-600 mr-2"><i class="fas fa-check-circle"></i></span>
+                  <span class="text-gray-600">Therapeutic fasting guidance</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-600 mr-2"><i class="fas fa-check-circle"></i></span>
+                  <span class="text-gray-600">Colon cleansing</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-600 mr-2"><i class="fas fa-check-circle"></i></span>
+                  <span class="text-gray-600">Post-detox rejuvenation</span>
+                </li>
+              </ul>
             </div>
-          </form>
-        </div>
-      </div>
-      
-      <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-        <p class="text-gray-400 text-sm">
-          &copy; 2025 Shree Ayurvedmaharshi. All rights reserved.
-        </p>
-        <div class="mt-4 md:mt-0">
-          <a href="#" class="text-gray-400 hover:text-green-500 text-sm mr-4">Privacy Policy</a>
-          <a href="#" class="text-gray-400 hover:text-green-500 text-sm mr-4">Terms of Service</a>
-          <a href="#" class="text-gray-400 hover:text-green-500 text-sm">Sitemap</a>
+            <div class="flex justify-between items-center">
+              <span class="text-green-800 font-semibold">Duration: 3-21 days</span>
+              <a href="contact.html" class="btn-primary-sm">Book Now</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </footer>
+  </section>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-  <script src="translations.js"></script>
-  <script src="script.js"></script>
-  <script src="language-switcher.js"></script>
-
-  <!-- Initialize Swiper -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Initialize Hero Swiper
-      const heroSwiper = new Swiper('.hero-swiper', {
-        // Optional parameters
-        loop: true,
-        effect: 'fade',
-        fadeEffect: {
-          crossFade: true
-        },
-        autoplay: {
-          delay: 5000,
-          disableOnInteraction: false,
-        },
-        speed: 1500,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-        // Ensure proper sizing
-        updateOnImagesReady: true, // Update swiper when images are loaded
-        observer: true, // Observe changes
-        observeParents: true,
-        // Add some parallax effect
-        on: {
-          slideChange: function() {
-            const activeSlide = this.slides[this.activeIndex];
-            const bgElement = activeSlide.querySelector('.full-screen-image');
-            if (bgElement && typeof gsap !== 'undefined') {
-              gsap.fromTo(bgElement, 
-                { scale: 1.1 }, 
-                { scale: 1, duration: 1.5, ease: "power2.out" }
-              );
-            }
-          },
-          imagesReady: function() {
-            // Update swiper when images are loaded
-            this.update();
-          },
-          resize: function() {
-            // Update swiper on window resize
-            this.update();
-          }
-        }
-      });
+  <!-- Treatment Process -->
+  <section class="py-20 bg-green-50">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 data-aos="fade-up" class="section-title">Our Treatment Process</h2>
+        <div data-aos="fade-up" data-aos-delay="200" class="section-divider"></div>
+        <p data-aos="fade-up" data-aos-delay="400" class="max-w-3xl mx-auto text-gray-600 mt-6">
+          We follow a systematic approach to ensure that each client receives personalized care that addresses their unique needs and constitution.
+        </p>
+      </div>
       
-      // Handle window resize
-      window.addEventListener('resize', function() {
-        if (heroSwiper) {
-          heroSwiper.update();
-        }
-      });
+      <div class="relative">
+        <!-- Process Timeline -->
+        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-green-200"></div>
+        
+        <!-- Step 1 -->
+        <div data-aos="fade-right" class="relative mb-16 md:mb-0">
+          <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0 md:pr-12 md:text-right">
+              <h3 class="text-2xl font-semibold text-green-800 mb-3">Initial Consultation</h3>
+              <p class="text-gray-600">
+                Your journey begins with a comprehensive assessment where our practitioners evaluate your constitution, current health status, and specific concerns to create a personalized treatment plan.
+              </p>
+            </div>
+            
+            <div class="process-step">
+              <span>1</span>
+            </div>
+            
+            <div class="md:w-1/2 md:pl-12 hidden md:block">
+              <img src="/placeholder.svg?height=300&width=400" alt="Initial Consultation" class="rounded-lg shadow-md">
+            </div>
+          </div>
+        </div>
+        
+        <!-- Step 2 -->
+        <div data-aos="fade-left" class="relative mb-16 md:mb-0 md:mt-32">
+          <div class="flex flex-col md:flex-row-reverse items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0 md:pl-12 md:text-left">
+              <h3 class="text-2xl font-semibold text-green-800 mb-3">Personalized Treatment Plan</h3>
+              <p class="text-gray-600">
+                Based on your assessment, we design a customized treatment protocol that may include various therapies, herbal formulations, dietary recommendations, and lifestyle adjustments.
+              </p>
+            </div>
+            
+            <div class="process-step">
+              <span>2</span>
+            </div>
+            
+            <div class="md:w-1/2 md:pr-12 hidden md:block">
+              <img src="/placeholder.svg?height=300&width=400" alt="Personalized Treatment Plan" class="rounded-lg shadow-md">
+            </div>
+          </div>
+        </div>
+        
+        <!-- Step 3 -->
+        <div data-aos="fade-right" class="relative mb-16 md:mb-0 md:mt-32">
+          <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0 md:pr-12 md:text-right">
+              <h3 class="text-2xl font-semibold text-green-800 mb-3">Treatment Implementation</h3>
+              <p class="text-gray-600">
+                You'll receive your treatments in our serene healing environment, where our skilled practitioners administer therapies with precision and care, ensuring your comfort throughout the process.
+              </p>
+            </div>
+            
+            <div class="process-step">
+              <span>3</span>
+            </div>
+            
+            <div class="md:w-1/2 md:pl-12 hidden md:block">
+              <img src="/placeholder.svg?height=300&width=400" alt="Treatment Implementation" class="rounded-lg shadow-md">
+            </div>
+          </div>
+        </div>
+        
+        <!-- Step 4 -->
+        <div data-aos="fade-left" class="relative md:mt-32">
+          <div class="flex flex-col md:flex-row-reverse items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0 md:pl-12 md:text-left">
+              <h3 class="text-2xl font-semibold text-green-800 mb-3">Follow-up & Maintenance</h3>
+              <p class="text-gray-600">
+                We provide ongoing support through follow-up consultations to monitor your progress, make necessary adjustments to your treatment plan, and equip you with tools for maintaining optimal health.
+              </p>
+            </div>
+            
+            <div class="process-step">
+              <span>4</span>
+            </div>
+            
+            <div class="md:w-1/2 md:pr-12 hidden md:block">
+              <img src="/placeholder.svg?height=300&width=400" alt="Follow-up & Maintenance" class="rounded-lg shadow-md">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      // Ensure images are fully loaded
-      const carouselImages = document.querySelectorAll('.hero-swiper .swiper-slide img');
-      carouselImages.forEach(img => {
-        img.onload = function() {
-          if (heroSwiper) {
-            heroSwiper.update();
-          }
-        };
-      });
-    });
-  </script>
-
-  <!-- Hidden images for preloading -->
-  <div style="display: none;">
-    <img src="public/images/naturopathy-camp.png" alt="Naturopathy Camps">
-    <img src="public/images/herbal-treatment.png" alt="Herbal Treatments">
-    <img src="public/images/ayurvedic-massage.png" alt  alt="Herbal Treatments">
-    <img src="public/images/ayurvedic-massage.png" alt="Ayurvedic Massage">
-    <img src="public/images/nutritional-counseling.png" alt="Nutritional Counseling">
-    <img src="public/images/meditation-yoga.png" alt="Meditation & Yoga">
-    <img src="public/images/detox-program.png" alt="Detoxification Programs">
-  </div>
-</body>
-</html>
+  <!-- Pricing -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 data-aos="fade-up" class="section-title">Investment in Your Health</h2>
+        <div data-aos="fade-up" data-aos-delay="200" class="section-divider"></div>
+        <p data-aos="fade-up" data-aos-delay="400" class="max-w-3xl mx-auto text-gray-600 mt-6">
+          We offer various packages to suit different needs and budgets. All our services are designed to provide maximum value for your wellness journey.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Basic Package -->
+        <div data-aos="fade-up" data-aos-delay="100" class="pricing-card">
+          <div class="p-8">
+            <h3 class="text-2xl font-semibold text-green-800 mb-2">Essential Wellness</h3>
+            <p class="text-gray-600 mb-6">Perfect for those beginning their Ayurvedic journey</p>
+            
+            <div class="mb-6">
+              <span class="text-4xl font-bold text-green-800">₹15,000</span>
+              <span class="text-gray-600">/package</span>
+            </div>
+            
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-start">
+                <span class="text-green-600 mr-2"><i class="fas fa-check"></i></span>
+                <span class="text-gray-600">Initial Ayurvedic consultation</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-600 mr-2"><i class="fas fa-check"></i></span>
+                <span class="text-gray-600">2 Ayurvedic massage sessions</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-600 mr-2"><i class="fas fa-check"></i></span>
+                <span class="text-gray-600">Basic herbal formulation</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-600 mr-2"><i class="fas fa-check"></i></span>
+                <span class="text-gray-600">Dietary guidelines</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-600 mr-2"><i class="fas fa-check"></i></span>
+                <span class="text-gray-600">1 follow-up consultation</span>
+              </li>
+            </ul>
+            
+            <a href="contact.html" class="btn-primary w-full text-center">Book Now</a>
+          </div>
+        </div>
+        
+        <!-- Premium Package -->
+        <div data-aos="fade-up" data-aos-delay="200" class="pricing-card pricing-featured">
+          <div class="absolute top-0 right-0" style="background-color: var(--accent-color);">
+            MOST POPULAR
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-semibold text-green-800 mb-2">Comprehensive Balance</h3>
+            <p class="text-gray-600 mb-6">Ideal for addressing specific health concerns</p>
+            
+            <div class="mb-6">
+              <span class="text-4xl font-bold text-green-800">₹35,000</span>
+              <span class="text-gray-600">/package</span>
+            </div>
+            
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-start">
+                <span class="text-green-600 mr-2"><i class="fas fa-check"></i></span>
+                <span class="text-gray-600">Comprehensive Ayurvedic assessment</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-600 mr-2"><i class="fas fa-check"></i></span>
+                <span class="text-gray-600">5 specialized Ayurvedic treatments</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-600 mr-2"><i class="fas fa-check"></i></span>
+                <span class="text-gray-600">Customized herbal formulations</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-600 mr-2"><i class="fas fa-check"></i></span>
+                <span class="text-gray-600">Customized herbal formulations</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-600 mr-2"><i class="fas fa-check"></i></span>
