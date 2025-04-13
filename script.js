@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const navbar = document.getElementById("navbar")
 
   if (navbar) {
-    window.addEventListener("scroll", () => {
+    const handleScroll = () => {
       if (window.scrollY > 50) {
         navbar.classList.remove("transparent-nav")
         navbar.classList.add("scrolled")
@@ -55,34 +55,13 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         }
       }
-    })
+    }
+
+    // Add scroll event listener
+    window.addEventListener("scroll", handleScroll)
 
     // Set initial state
-    if (window.scrollY > 50) {
-      navbar.classList.remove("transparent-nav")
-      navbar.classList.add("scrolled")
-      navbar.classList.add("bg-white")
-      navbar.classList.add("shadow-md")
-
-      // Set menu toggle color
-      const menuToggle = document.getElementById("menu-toggle")
-      if (menuToggle) {
-        menuToggle.classList.remove("text-white")
-        menuToggle.classList.add("text-gray-800")
-      }
-    } else if (window.location.pathname === "/" || window.location.pathname.includes("index.html")) {
-      // Only set transparent if we're on the homepage
-      navbar.classList.add("transparent-nav")
-      navbar.classList.remove("bg-white")
-      navbar.classList.remove("shadow-md")
-
-      // Set menu toggle color
-      const menuToggle = document.getElementById("menu-toggle")
-      if (menuToggle) {
-        menuToggle.classList.add("text-white")
-        menuToggle.classList.remove("text-gray-800")
-      }
-    }
+    handleScroll()
   }
 
   // Smooth scrolling for anchor links
@@ -95,10 +74,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const targetElement = document.querySelector(targetId)
       if (targetElement) {
-        window.scrollTo({
-          top: targetElement.offsetTop - 80,
-          behavior: "smooth",
-        })
+        // Add a small delay to ensure proper scrolling
+        setTimeout(() => {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80, // Adjust offset for navbar height
+            behavior: "smooth",
+          })
+        }, 100)
 
         // Close mobile menu if open
         if (mobileMenu && !mobileMenu.classList.contains("hidden")) {
@@ -293,7 +275,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let swiperInstance // Declare swiperInstance outside the if block
 
   if (document.querySelector(".hero-swiper")) {
-    swiperInstance = new Swiper(".hero-swiper", {
+    const swiper = new Swiper(".hero-swiper", {
       loop: true,
       effect: "fade",
       fadeEffect: {

@@ -16,307 +16,113 @@
 <!-- Add class to body for home page specific styling -->
 <body class="font-sans bg-gray-50 text-gray-800 home-page">
   <!-- Navigation -->
-  <nav id="navbar" class="w-full">
-    <div class="container mx-auto px-6 py-3">
-      <div class="flex justify-between items-center">
-        <!-- Update the logo height to match navbar height -->
-        <a href="index.html" class="flex items-center">
-          <img src="public/images/shree-ayurvedmaharshi-logo.svg" alt="Shree Ayurvedmaharshi" class="h-20">
-        </a>
-        
-        <div class="hidden md:flex items-center">
-          <div class="space-x-8 mr-8">
-            <a href="index.html" class="nav-link active" data-key="home">Home</a>
-            <a href="about.html" class="nav-link" data-key="about">About</a>
-            <a href="services.html" class="nav-link" data-key="services">Services</a>
-            <a href="team.html" class="nav-link" data-key="team">Team</a>
-            <a href="testimonials.html" class="nav-link" data-key="testimonials">Testimonials</a>
-            <a href="contact.html" class="nav-link" data-key="contact">Contact</a>
-          </div>
-          
-          <!-- Language Switcher -->
-          <div class="relative language-switcher">
-            <button id="language-toggle" class="flex items-center space-x-1 bg-green-50 hover:bg-green-100 text-green-800 px-3 py-2 rounded-md transition-colors">
-              <i class="fas fa-globe text-green-600"></i>
-              <span id="current-language">English</span>
-              <i class="fas fa-chevron-down text-xs"></i>
-            </button>
-            <div id="language-dropdown" class="absolute right-0 mt-2 w-36 bg-white rounded-md shadow-lg py-1 z-50 hidden">
-              <a href="#" class="language-option block px-4 py-2 text-sm text-gray-700 hover:bg-green-50" data-lang="english">English</a>
-              <a href="#" class="language-option block px-4 py-2 text-sm text-gray-700 hover:bg-green-50" data-lang="marathi">मराठी (Marathi)</a>
-            </div>
-          </div>
+<nav id="navbar" class="w-full">
+  <div class="container mx-auto px-4 py-3">
+    <div class="flex justify-between items-center">
+      <!-- Update the logo height to match navbar height -->
+      <a href="index.html" class="flex items-center">
+        <img src="public/images/shree-ayurvedmaharshi-logo.svg" alt="Shree Ayurvedmaharshi" class="h-20">
+      </a>
+      
+      <div class="hidden md:flex items-center">
+        <div class="space-x-8 mr-8">
+          <a href="#home" class="nav-link active" data-key="home">Home</a>
+          <a href="about.html" class="nav-link" data-key="about">About</a>
+          <a href="services.html" class="nav-link" data-key="services">Services</a>
+          <a href="team.html" class="nav-link" data-key="team">Team</a>
+          <a href="contact.html" class="nav-link" data-key="contact">Contact</a>
         </div>
         
-        <div class="md:hidden flex items-center">
-          <!-- Mobile Language Switcher -->
-          <div class="relative language-switcher mr-4">
-            <button id="mobile-language-toggle" class="flex items-center space-x-1 bg-green-50 hover:bg-green-100 text-green-800 px-2 py-1 rounded-md transition-colors">
-              <i class="fas fa-globe text-green-600"></i>
-              <span id="mobile-current-language">EN</span>
-            </button>
-            <div id="mobile-language-dropdown" class="absolute right-0 mt-2 w-36 bg-white rounded-md shadow-lg py-1 z-50 hidden">
-              <a href="#" class="language-option block px-4 py-2 text-sm text-gray-700 hover:bg-green-50" data-lang="english">English</a>
-              <a href="#" class="language-option block px-4 py-2 text-sm text-gray-700 hover:bg-green-50" data-lang="marathi">मराठी (Marathi)</a>
-            </div>
-          </div>
-          
-          <button id="menu-toggle" class="focus:outline-none">
-            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
+        <!-- Language Switcher -->
+        <div class="relative language-switcher">
+          <button id="language-toggle" class="flex items-center space-x-1 bg-green-50 hover:bg-green-100 text-green-800 px-3 py-2 rounded-md transition-colors">
+            <i class="fas fa-globe text-green-600"></i>
+            <span id="current-language">English</span>
+            <i class="fas fa-chevron-down text-xs"></i>
           </button>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Mobile menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
-      <div class="container mx-auto px-6 py-3 flex flex-col space-y-4">
-        <a href="index.html" class="mobile-nav-link active" data-key="home">Home</a>
-        <a href="about.html" class="mobile-nav-link" data-key="about">About</a>
-        <a href="services.html" class="mobile-nav-link" data-key="services">Services</a>
-        <a href="team.html" class="mobile-nav-link" data-key="team">Team</a>
-        <a href="testimonials.html" class="mobile-nav-link" data-key="testimonials">Testimonials</a>
-        <a href="contact.html" class="mobile-nav-link" data-key="contact">Contact</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Main content with padding to account for fixed navbar -->
-  <div class="main-content">
-    <!-- Hero Section with Carousel -->
-    <section id="home" class="relative">
-      <!-- Swiper Carousel with simplified approach -->
-      <div class="swiper hero-swiper">
-        <div class="swiper-wrapper">
-          <!-- Slide 1 -->
-          <div class="swiper-slide">
-            <img src="public/images/meditation-bg-2.jpg" alt="Meditation Background" class="full-screen-image">
-          </div>
-          <!-- Slide 2 -->
-          <div class="swiper-slide">
-            <img src="public/images/meditation-bg-2.jpg" alt="Meditation Background" class="full-screen-image">
-          </div>
-          <!-- Slide 3 -->
-          <div class="swiper-slide">
-            <img src="public/images/meditation-bg-1.jpg" alt="Meditation Background" class="full-screen-image">
+          <div id="language-dropdown" class="absolute right-0 mt-2 w-36 bg-white rounded-md shadow-lg py-1 z-50 hidden">
+            <a href="#" class="language-option block px-4 py-2 text-sm text-gray-700 hover:bg-green-50" data-lang="english">English</a>
+            <a href="#" class="language-option block px-4 py-2 text-sm text-gray-700 hover:bg-green-50" data-lang="marathi">मराठी (Marathi)</a>
           </div>
         </div>
-        <!-- Add pagination -->
-        <div class="swiper-pagination"></div>
       </div>
       
-      <!-- Hero Content -->
-      <div class="hero-content-wrapper">
-        <div class="container mx-auto px-6 text-center">
-          <h1 data-aos="fade-up" data-aos-duration="1000" class="text-4xl md:text-6xl font-bold text-white leading-tight mb-6 drop-shadow-lg" data-key="heroTitle">
-            Natural Healing Through <br>Ancient Wisdom
-          </h1>
-          <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto drop-shadow-lg" data-key="heroSubtitle">
-            Experience the transformative power of Ayurvedic healing at our immersive naturopathy camps
-          </p>
-          <!-- Update the hero section buttons to use the new color scheme -->
-          <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-            <a href="#about" class="btn-primary mr-4" data-key="discoverMore">Discover More</a>
-            <a href="contact.html" class="btn-secondary" data-key="joinCamp">Join Our Camp</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2 data-aos="fade-up" class="section-title" data-key="aboutUs">About Us</h2>
-          <div data-aos="fade-up" data-aos-delay="200" class="section-divider"></div>
-        </div>
-        
-        <div class="flex flex-col md:flex-row items-center">
-          <div data-aos="fade-right" class="md:w-1/2 mb-10 md:mb-0">
-            <img src="public/images/about-image.png" alt="Ayurvedic healing" class="rounded-lg shadow-xl">
-          </div>
-          
-          <div data-aos="fade-left" class="md:w-1/2 md:pl-12">
-            <h3 class="text-2xl font-semibold text-green-800 mb-4" data-key="healingPhilosophy">Our Healing Philosophy</h3>
-            <p class="mb-6 text-gray-600" data-key="aboutDesc1">
-              Founded on the ancient principles of Ayurveda, our center brings together traditional wisdom and modern naturopathic approaches to create a holistic healing experience. We believe in the body's innate ability to heal itself when provided with the right environment and support.
-            </p>
-            <p class="mb-6 text-gray-600" data-key="aboutDesc2">
-              Our naturopathy camps are designed to reconnect you with nature's healing elements - earth, water, fire, air, and ether - while teaching you practical techniques to maintain balance in your daily life.
-            </p>
-            
-            <div class="grid grid-cols-2 gap-4 mb-8">
-              <div class="flex items-start">
-                <div class="text-green-600 mr-3">
-                  <i class="fas fa-leaf text-xl"></i>
-                </div>
-                <div>
-                  <h4 class="font-medium text-gray-800" data-key="organicApproach">Organic Approach</h4>
-                  <p class="text-sm text-gray-600" data-key="naturalTreatments">100% natural treatments</p>
-                </div>
-              </div>
-              
-              <div class="flex items-start">
-                <div class="text-green-600 mr-3">
-                  <i class="fas fa-balance-scale text-xl"></i>
-                </div>
-                <div>
-                  <h4 class="font-medium text-gray-800" data-key="balancedLiving">Balanced Living</h4>
-                  <p class="text-sm text-gray-600" data-key="mindBodyHarmony">Mind-body harmony</p>
-                </div>
-              </div>
-              
-              <div class="flex items-start">
-                <div class="text-green-600 mr-3">
-                  <i class="fas fa-hands text-xl"></i>
-                </div>
-                <div>
-                  <h4 class="font-medium text-gray-800" data-key="personalizedCare">Personalized Care</h4>
-                  <p class="text-sm text-gray-600" data-key="tailoredDosha">Tailored to your dosha</p>
-                </div>
-              </div>
-              
-              <div class="flex items-start">
-                <div class="text-green-600 mr-3">
-                  <i class="fas fa-seedling text-xl"></i>
-                </div>
-                <div>
-                  <h4 class="font-medium text-gray-800" data-key="sustainableWellness">Sustainable Wellness</h4>
-                  <p class="text-sm text-gray-600" data-key="longTermSolutions">Long-term health solutions</p>
-                </div>
-              </div>
-            </div>
-            
-            <a href="about.html" class="btn-primary" data-key="learnMoreAbout">Learn More About Us</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-20 bg-green-50">
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2 data-aos="fade-up" class="section-title" data-key="ourServices">Our Services</h2>
-          <div data-aos="fade-up" data-aos-delay="200" class="section-divider"></div>
-          <p data-aos="fade-up" data-aos-delay="400" class="max-w-3xl mx-auto text-gray-600 mt-6" data-key="servicesDesc">
-            Discover our comprehensive range of Ayurvedic treatments and naturopathy programs designed to restore balance and promote holistic wellness.
-          </p>
-        </div>
-        
-        <!-- Update the service cards to use the new color scheme -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Service 1 -->
-          <div data-aos="fade-up" data-aos-delay="100" class="service-card p-6 flex flex-col h-full">
-            <div class="service-icon mx-auto mb-6">
-              <i class="fas fa-spa"></i>
-            </div>
-            <h3 class="text-xl font-semibold text-green-800 mb-4 text-center" data-key="naturopathyCamps">Naturopathy Camps</h3>
-            <p class="text-gray-600 mb-6 text-center flex-grow" data-key="naturopathyDesc">
-              Immersive multi-day retreats focused on natural healing through Ayurvedic principles, meditation, and reconnection with nature.
-            </p>
-            <a href="services.html" class="text-green-600 hover:text-green-800 font-medium inline-flex items-center justify-center mt-auto">
-              <span data-key="learnMore">Learn More</span>
-              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-              </svg>
-            </a>
-          </div>
-          
-          <!-- Service 2 -->
-          <div data-aos="fade-up" data-aos-delay="200" class="service-card p-6 flex flex-col h-full">
-            <div class="service-icon mx-auto mb-6">
-              <i class="fas fa-mortar-pestle"></i>
-            </div>
-            <h3 class="text-xl font-semibold text-green-800 mb-4 text-center" data-key="herbalTreatments">Herbal Treatments</h3>
-            <p class="text-gray-600 mb-6 text-center flex-grow" data-key="herbalDesc">
-              Customized herbal formulations and treatments based on your unique constitution to address specific health concerns.
-            </p>
-            <a href="services.html" class="text-green-600 hover:text-green-800 font-medium inline-flex items-center justify-center mt-auto">
-              <span data-key="learnMore">Learn More</span>
-              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-              </svg>
-            </a>
-          </div>
-          
-          <!-- Service 3 -->
-          <div data-aos="fade-up" data-aos-delay="300" class="service-card p-6 flex flex-col h-full">
-            <div class="service-icon mx-auto mb-6">
-              <i class="fas fa-hands"></i>
-            </div>
-            <h3 class="text-xl font-semibold text-green-800 mb-4 text-center" data-key="ayurvedicMassage">Ayurvedic Massage</h3>
-            <p class="text-gray-600 mb-6 text-center flex-grow" data-key="massageDesc">
-              Traditional therapeutic massage techniques using medicated oils to detoxify the body and stimulate vital energy points.
-            </p>
-            <a href="services.html" class="text-green-600 hover:text-green-800 font-medium inline-flex items-center justify-center mt-auto">
-              <span data-key="learnMore">Learn More</span>
-              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-              </svg>
-            </a>
-          </div>
-          
-          <!-- Service 4 -->
-          <div data-aos="fade-up" data-aos-delay="400" class="service-card p-6 flex flex-col h-full">
-            <div class="service-icon mx-auto mb-6">
-              <i class="fas fa-apple-alt"></i>
-            </div>
-            <h3 class="text-xl font-semibold text-green-800 mb-4 text-center" data-key="nutritionalCounseling">Nutritional Counseling</h3>
-            <p class="text-gray-600 mb-6 text-center flex-grow" data-key="nutritionDesc">
-              Personalized dietary guidance based on Ayurvedic principles to optimize digestion and support your unique body type.
-            </p>
-            <a href="services.html" class="text-green-600 hover:text-green-800 font-medium inline-flex items-center justify-center mt-auto">
-              <span data-key="learnMore">Learn More</span>
-              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-              </svg>
-            </a>
-          </div>
-          
-          <!-- Service 5 -->
-          <div data-aos="fade-up" data-aos-delay="500" class="service-card p-6 flex flex-col h-full">
-            <div class="service-icon mx-auto mb-6">
-              <i class="fas fa-brain"></i>
-            </div>
-            <h3 class="text-xl font-semibold text-green-800 mb-4 text-center" data-key="meditationYoga">Meditation & Yoga</h3>
-            <p class="text-gray-600 mb-6 text-center flex-grow" data-key="meditationDesc">
-              Guided practices to calm the mind, increase body awareness, and cultivate inner peace through ancient techniques.
-            </p>
-            <a href="services.html" class="text-green-600 hover:text-green-800 font-medium inline-flex items-center justify-center mt-auto">
-              <span data-key="learnMore">Learn More</span>
-              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-              </svg>
-            </a>
-          </div>
-          
-          <!-- Service 6 -->
-          <div data-aos="fade-up" data-aos-delay="600" class="service-card p-6 flex flex-col h-full">
-            <div class="service-icon mx-auto mb-6">
-              <i class="fas fa-water"></i>
-            </div>
-            <h3 class="text-xl font-semibold text-green-800 mb-4 text-center" data-key="detoxPrograms">Detoxification Programs</h3>
-            <p class="text-gray-600 mb-6 text-center flex-grow" data-key="detoxDesc">
-              Comprehensive cleansing protocols to remove toxins, rejuvenate tissues, and restore optimal functioning of body systems.
-            </p>
-            <a href="services.html" class="text-green-600 hover:text-green-800 font-medium inline-flex items-center justify-center mt-auto">
-              <span data-key="learnMore">Learn More</span>
-              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-              </svg>
-            </a>
+      <div class="md:hidden flex items-center">
+        <!-- Mobile Language Switcher -->
+        <div class="relative language-switcher mr-4">
+          <button id="mobile-language-toggle" class="flex items-center space-x-1 bg-green-50 hover:bg-green-100 text-green-800 px-2 py-1 rounded-md transition-colors">
+            <i class="fas fa-globe text-green-600"></i>
+            <span id="mobile-current-language">EN</span>
+          </button>
+          <div id="mobile-language-dropdown" class="absolute right-0 mt-2 w-36 bg-white rounded-md shadow-lg py-1 z-50 hidden">
+            <a href="#" class="language-option block px-4 py-2 text-sm text-gray-700 hover:bg-green-50" data-lang="english">English</a>
+            <a href="#" class="language-option block px-4 py-2 text-sm text-gray-700 hover:bg-green-50" data-lang="marathi">मराठी (Marathi)</a>
           </div>
         </div>
         
-        <div class="text-center mt-12">
-          <a href="services.html" class="btn-primary" data-key="viewAllServices">View All Services</a>
-        </div>
+        <button id="menu-toggle" class="focus:outline-none">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
       </div>
-    </section>
+    </div>
   </div>
+  
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+    <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+      <a href="#home" class="mobile-nav-link active" data-key="home">Home</a>
+      <a href="about.html" class="mobile-nav-link" data-key="about">About</a>
+      <a href="services.html" class="mobile-nav-link" data-key="services">Services</a>
+      <a href="team.html" class="mobile-nav-link" data-key="team">Team</a>
+      <a href="contact.html" class="mobile-nav-link" data-key="contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+  <!-- Main content with margin-top to account for fixed navbar -->
+<div class="main-content">
+  <!-- Hero Section with Carousel - no padding-top -->
+  <section id="home" class="relative">
+    <!-- Swiper Carousel with simplified approach -->
+    <div class="swiper hero-swiper">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <img src="public/images/meditation-bg-1.jpg" alt="Meditation Background" class="full-screen-image">
+        </div>
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+          <img src="public/images/meditation-bg-2.jpg" alt="Meditation Background" class="full-screen-image">
+        </div>
+        <!-- Slide 3 -->
+        <div class="swiper-slide">
+          <img src="public/images/meditation-bg-3.jpg" alt="Meditation Background" class="full-screen-image">
+        </div>
+      </div>
+      <!-- Add pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+    
+    <!-- Hero Content -->
+    <div class="hero-content-wrapper">
+      <div class="container mx-auto px-6 text-center">
+        <h1 data-aos="fade-up" data-aos-duration="1000" class="text-4xl md:text-6xl font-bold text-white leading-tight mb-6 drop-shadow-lg" data-key="heroTitle">
+          Natural Healing Through <br>Ancient Wisdom
+        </h1>
+        <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto drop-shadow-lg" data-key="heroSubtitle">
+          Experience the transformative power of Ayurvedic healing at our immersive naturopathy camps
+        </p>
+        <!-- Update the hero section buttons to use the new color scheme -->
+        <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+          <a href="about.html" class="btn-primary mr-4" data-key="discoverMore">Discover More</a>
+          <a href="contact.html" class="btn-secondary" data-key="joinCamp">Join Our Camp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
 
   <!-- Footer -->
   <!-- Update the footer to use the new color scheme -->
@@ -324,7 +130,9 @@
     <div class="container mx-auto px-6">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <div>
-          <h3 class="text-2xl font-bold mb-6">Shree<span style="color: var(--accent-color);">Ayurvedmaharshi</span></h3>
+          <div class="mb-6">
+            <img src="public/images/circular-logo.png" alt="Shree Ayurvedmaharshi" class="w-24 h-24 rounded-full border-2 border-white mb-4">
+          </div>
           <p class="text-gray-400 mb-6">
             Reconnect with nature's healing wisdom through our authentic Ayurvedic treatments and naturopathy programs.
           </p>
@@ -351,7 +159,6 @@
             <li><a href="about.html" class="text-gray-400 hover:text-green-500">About Us</a></li>
             <li><a href="services.html" class="text-gray-400 hover:text-green-500">Services</a></li>
             <li><a href="team.html" class="text-gray-400 hover:text-green-500">Our Team</a></li>
-            <li><a href="testimonials.html" class="text-gray-400 hover:text-green-500">Testimonials</a></li>
             <li><a href="contact.html" class="text-gray-400 hover:text-green-500">Contact Us</a></li>
           </ul>
         </div>

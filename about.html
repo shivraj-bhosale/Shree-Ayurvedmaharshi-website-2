@@ -8,62 +8,81 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- GSAP Animation Library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
   <style>
-    .story-animation-container {
-      position: relative;
-      overflow: hidden;
-      min-height: 400px;
+    .section-divider {
+      height: 4px;
+      width: 60px;
+      background-color: var(--accent-color);
+      margin: 1rem auto;
     }
     
-    .walking-man {
-      position: absolute;
-      width: 150px;
-      height: 300px;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 10;
-      display: none;
-    }
-    
-    .yoga-man {
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      opacity: 0;
-      z-index: 5;
-    }
-    
-    .story-text {
-      opacity: 0;
-    }
-    
-    .story-text p {
-      transform: translateY(20px);
-      opacity: 0;
-    }
-    
-    .story-bg-image {
-      opacity: 0.3;
-      transition: opacity 1s ease;
-    }
-    
-    .animation-complete .story-bg-image {
-      opacity: 1;
-    }
-    
-    @keyframes walking {
-      0% { background-image: url('public/images/walking-man-1.svg'); }
-      25% { background-image: url('public/images/walking-man-2.svg'); }
-      50% { background-image: url('public/images/walking-man-3.svg'); }
-      75% { background-image: url('public/images/walking-man-4.svg'); }
-      100% { background-image: url('public/images/walking-man-1.svg'); }
-    }
+    /* Custom styles for the About Us header section */
+.about-header {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 1600px;
+  margin: 0 auto;
+  background-image: url('public/images/services-bg.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  aspect-ratio: 1600/450;
+  display: flex;
+  align-items: center; /* Change from flex-start to center */
+  justify-content: flex-start; /* Align to left */
+}
+
+.about-header-content {
+  padding-left: 6rem;
+  text-align: left;
+  max-width: 600px;
+  position: relative;
+  z-index: 2; /* Ensure text is above the background */
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 0;
+  transform: translateY(-50%); /* Center vertically */
+}
+
+.about-header-content h1 {
+  color: var(--accent-color); /* Orange color from accent variable */
+  font-size: 4rem; /* Larger font size */
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow for better readability */
+  line-height: 1.1; /* Tighter line height */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .about-header {
+    aspect-ratio: 16/9; /* Adjust aspect ratio for mobile */
+    background-size: cover;
+  }
+  
+  .about-header-content {
+    padding-left: 2rem;
+    max-width: 90%;
+  }
+  
+  .about-header-content h1 {
+    font-size: 3rem; /* Still large but adjusted for mobile */
+  }
+}
+
+/* Add additional breakpoints for better responsiveness */
+@media (max-width: 480px) {
+  .about-header-content h1 {
+    font-size: 2.5rem; /* Smaller for very small screens */
+  }
+}
+
+/* Add a medium breakpoint */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .about-header-content h1 {
+    font-size: 3.5rem; /* Medium size for tablets */
+  }
+}
   </style>
 </head>
 <body class="font-sans bg-gray-50 text-gray-800">
@@ -82,7 +101,6 @@
             <a href="about.html" class="nav-link active" data-key="about">About</a>
             <a href="services.html" class="nav-link" data-key="services">Services</a>
             <a href="team.html" class="nav-link" data-key="team">Team</a>
-            <a href="testimonials.html" class="nav-link" data-key="testimonials">Testimonials</a>
             <a href="contact.html" class="nav-link" data-key="contact">Contact</a>
           </div>
           
@@ -129,44 +147,39 @@
         <a href="about.html" class="mobile-nav-link active" data-key="about">About</a>
         <a href="services.html" class="mobile-nav-link" data-key="services">Services</a>
         <a href="team.html" class="mobile-nav-link" data-key="team">Team</a>
-        <a href="testimonials.html" class="mobile-nav-link" data-key="testimonials">Testimonials</a>
         <a href="contact.html" class="mobile-nav-link" data-key="contact">Contact</a>
       </div>
     </div>
   </nav>
 
-  <!-- Page Header -->
-  <section class="page-header bg-cover bg-center" style="background-image: url('public/images/services-bg.png')">
-    <div class="container mx-auto px-6 py-32 text-center">
-      <h1 data-aos="fade-up" class="text-4xl md:text-5xl font-bold text-white mb-4" data-key="aboutUs">About Us</h1>
-      <p data-aos="fade-up" data-aos-delay="200" class="text-xl text-white">Discover our journey, philosophy, and commitment to holistic healing</p>
+  <!-- Main content with margin-top to account for fixed navbar -->
+<div class="main-content">
+  <!-- Page Header - Modified as requested -->
+  <section class="about-header">
+    <div class="about-header-content">
+      <h1 data-aos="fade-right" data-key="aboutUs">About Us</h1>
     </div>
   </section>
+</div>
 
-  <!-- Our Story Section with Animation -->
+  <!-- Our Story Section - Simplified -->
   <section class="py-20 bg-white" id="our-story-section">
     <div class="container mx-auto px-6">
       <div class="flex flex-col md:flex-row items-center">
-        <div class="md:w-1/2 mb-10 md:mb-0 story-animation-container" id="animation-container">
-          <!-- Background image that will fade in after animation -->
-          <img src="public/images/about-image.png" alt="Our story" class="rounded-lg shadow-xl story-bg-image" id="story-bg-image">
-          
-          <!-- Walking man animation -->
-          <div class="walking-man" id="walking-man"></div>
-          
-          <!-- Yoga man that appears at the end -->
-          <img src="public/images/yoga-man.svg" alt="Yoga pose" class="yoga-man" id="yoga-man">
+        <div class="md:w-1/2 mb-10 md:mb-0">
+          <!-- Changed from yoga-man.svg to about-image.png -->
+          <img src="public/images/about-image.png" alt="About Us" class="w-full max-w-md mx-auto">
         </div>
         
-        <div class="md:w-1/2 md:pl-12 story-text" id="story-text">
-          <h2 class="text-3xl font-bold text-green-800 mb-6">Our Story</h2>
-          <p class="text-gray-600 mb-6">
+        <div class="md:w-1/2 md:pl-12">
+          <h2 data-aos="fade-right" data-aos-delay="100" class="text-3xl font-bold text-green-800 mb-6">Our Story</h2>
+          <p data-aos="fade-right" data-aos-delay="300" class="text-gray-600 mb-6">
             AyurvedaHarmony was founded in 2005 by Dr. Arjun Sharma, a visionary Ayurvedic physician who recognized the growing disconnect between modern lifestyles and natural healing wisdom. After years of practicing traditional Ayurveda in Kerala, Dr. Sharma set out to create a sanctuary where people could reconnect with nature's healing elements.
           </p>
-          <p class="text-gray-600 mb-6">
+          <p data-aos="fade-right" data-aos-delay="400" class="text-gray-600 mb-6">
             What began as a small clinic offering personalized Ayurvedic consultations has grown into a comprehensive wellness center with a team of dedicated practitioners. Our signature naturopathy camps, introduced in 2010, have helped thousands of individuals from around the world experience the transformative power of natural healing.
           </p>
-          <p class="text-gray-600">
+          <p data-aos="fade-right" data-aos-delay="500" class="text-gray-600">
             Today, AyurvedaHarmony stands as a testament to the enduring relevance of ancient healing traditions in our modern world. We continue to evolve while staying true to the authentic principles that have guided Ayurvedic practice for thousands of years.
           </p>
         </div>
@@ -340,26 +353,14 @@
     </div>
   </section>
 
-  <!-- Call to Action -->
-  <section class="py-16" style="background-color: var(--accent-color);">
-    <div class="container mx-auto px-6 text-center">
-      <h2 data-aos="fade-up" class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Begin Your Healing Journey?</h2>
-      <p data-aos="fade-up" data-aos-delay="200" class="text-xl mb-8 max-w-3xl mx-auto text-white">
-        Join our upcoming naturopathy camp and experience the transformative power of Ayurvedic healing.
-      </p>
-      <div data-aos="fade-up" data-aos-delay="400">
-        <a href="contact.html" class="btn-white mr-4">Book Your Spot</a>
-        <a href="services.html" class="btn-outline">Learn More</a>
-      </div>
-    </div>
-  </section>
-
   <!-- Footer -->
   <footer class="bg-gray-900 text-white py-12">
     <div class="container mx-auto px-6">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <div>
-          <h3 class="text-2xl font-bold mb-6">Ayurveda<span class="text-green-500">Harmony</span></h3>
+          <div class="mb-6">
+            <img src="public/images/circular-logo.png" alt="Shree Ayurvedmaharshi" class="w-24 h-24 rounded-full border-2 border-white mb-4">
+          </div>
           <p class="text-gray-400 mb-6">
             Reconnect with nature's healing wisdom through our authentic Ayurvedic treatments and naturopathy programs.
           </p>
@@ -437,76 +438,13 @@
   <script src="script.js"></script>
   <script src="language-switcher.js"></script>
   
-  <!-- Animation Script -->
   <script>
+    // Initialize AOS
     document.addEventListener('DOMContentLoaded', function() {
-      // Initialize GSAP
-      gsap.registerPlugin(ScrollTrigger);
-      
-      // Get elements
-      const walkingMan = document.getElementById('walking-man');
-      const yogaMan = document.getElementById('yoga-man');
-      const storyText = document.getElementById('story-text');
-      const storyBgImage = document.getElementById('story-bg-image');
-      const animationContainer = document.getElementById('animation-container');
-      const storySection = document.getElementById('our-story-section');
-      
-      // Set initial styles for walking man
-      walkingMan.style.display = 'block';
-      walkingMan.style.right = '-150px'; // Start off-screen to the right
-      walkingMan.style.animation = 'walking 0.8s infinite';
-      
-      // Create GSAP timeline
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: storySection,
-          start: "top center",
-          end: "bottom bottom",
-          toggleActions: "play none none none"
-        }
-      });
-      
-      // Animation sequence
-      tl.to(walkingMan, {
-        x: -window.innerWidth + 150, // Walk across the screen
-        duration: 3,
-        ease: "power1.inOut"
-      })
-      .to(walkingMan, {
-        opacity: 0,
-        duration: 0.5,
-        onComplete: function() {
-          walkingMan.style.animation = 'none'; // Stop walking animation
-        }
-      }, "-=0.5") // Overlap with previous animation
-      .to(yogaMan, {
-        opacity: 1,
-        duration: 1,
-        ease: "power2.inOut"
-      }, "-=0.3")
-      .to(storyText, {
-        opacity: 1,
-        duration: 1
-      }, "-=0.7")
-      .to(storyText.querySelectorAll('p'), {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        stagger: 0.3,
-        ease: "power2.out"
-      }, "-=0.5")
-      .to(storyBgImage, {
-        opacity: 1,
-        duration: 1,
-        onComplete: function() {
-          animationContainer.classList.add('animation-complete');
-        }
-      }, "-=1");
-      
-      // Make animation responsive
-      window.addEventListener('resize', function() {
-        // Update animation parameters if needed
-        tl.invalidate().restart(); // Restart the animation with new window dimensions
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true
       });
     });
   </script>

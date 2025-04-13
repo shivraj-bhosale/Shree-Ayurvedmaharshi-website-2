@@ -2,9 +2,9 @@
 :root {
   --primary-color: #ecfdf5; /* Mint */
   --primary-light: #f4fdf9; /* Lighter mint */
-  --primary-dark: #1a5653; /* Dark green */
+  --primary-dark: #066636; /* Dark green - changed from #1a5653 */
   --secondary-color: #f0fdf4;
-  --accent-color: #812f3d; /* Burgundy */
+  --accent-color: #e85723; /* Orange - changed from burgundy #812f3d */
   --text-color: #1f2937;
   --text-light: #6b7280;
   --white: #ffffff;
@@ -23,6 +23,10 @@ body {
   font-family: "Inter", sans-serif;
   color: var(--text-color);
   line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 /* Hero Carousel - Simplified approach */
@@ -78,9 +82,21 @@ body {
   top: 0;
   left: 0;
   right: 0;
+  width: 100vw; /* Use viewport width */
+  max-width: 100%; /* Prevent overflow */
   z-index: 1000; /* Very high z-index to stay on top */
   opacity: 1; /* Ensure navbar is fully opaque */
   transition: var(--transition);
+  padding: 0; /* Remove all padding from navbar */
+  margin: 0; /* Remove all margins */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+#navbar .container {
+  padding-bottom: 0; /* Remove bottom padding */
+  width: 100%; /* Full width container */
+  max-width: 100%; /* Prevent overflow */
+  box-sizing: border-box; /* Include padding in width calculation */
 }
 
 /* Add a class for the scrolled state - we'll keep this in case you want to change the gradient on scroll */
@@ -214,7 +230,10 @@ body {
 }
 
 .section-divider {
+  height: 4px;
+  width: 60px;
   background-color: var(--accent-color);
+  margin: 1rem auto;
 }
 
 /* Fix for other page headers to account for navbar height */
@@ -405,6 +424,8 @@ body {
   /* Adjust hero height for mobile */
   .hero-swiper {
     margin-top: 0; /* Remove margin to eliminate separation */
+    width: 100vw; /* Use viewport width */
+    max-width: 100%; /* Prevent overflow */
   }
 
   .section-title {
@@ -430,18 +451,39 @@ body {
   /* Update navbar height for mobile */
   #navbar {
     height: 90px; /* Explicit height for mobile */
+    padding: 0; /* Remove all padding */
+    width: 100vw; /* Use viewport width */
+    max-width: 100%; /* Prevent overflow */
+  }
+
+  #navbar .container {
+    padding-bottom: 0; /* Remove bottom padding */
+    padding-left: 0.75rem; /* Reduce side padding */
+    padding-right: 0.75rem; /* Reduce side padding */
   }
 
   #home {
-    margin-top: 0; /* Remove margin to eliminate separation */
+    position: relative;
+    overflow: visible; /* Change from hidden to visible to prevent cutting off content */
+    padding-top: 0; /* Remove padding completely */
+    margin-top: 0; /* Remove margin-top from the section */
+    height: auto; /* Let the content determine the height */
+    width: 100vw; /* Use viewport width */
+    max-width: 100%; /* Prevent overflow */
   }
 
   #mobile-menu {
     top: 90px; /* Use explicit height instead of var */
+    width: 100vw; /* Use viewport width */
+    max-width: 100%; /* Prevent overflow */
   }
 
   .page-header {
     margin-top: 90px; /* Use explicit height instead of var */
+  }
+
+  .main-content {
+    margin-top: 90px; /* Match navbar height for mobile */
   }
 }
 
@@ -465,7 +507,7 @@ body {
   justify-content: center;
   z-index: 10;
   pointer-events: none; /* Allow clicks to pass through to the carousel */
-  padding-top: 100px; /* Add padding equal to navbar height to push content down */
+  padding-top: 0; /* Remove padding to eliminate separation */
 }
 
 .hero-content-wrapper a {
@@ -483,22 +525,21 @@ body {
   padding-top: 0;
   position: relative;
   z-index: 1;
-}
-
-/* Fix for carousel container to ensure proper sizing and positioning */
-#home {
-  position: relative;
-  overflow: visible; /* Change from hidden to visible to prevent cutting off content */
-  padding-top: 100px; /* Add padding equal to navbar height */
-  margin-top: 0; /* Remove margin-top from the section */
-  height: auto; /* Let the content determine the height */
+  width: 100vw; /* Use viewport width */
+  max-width: 100%; /* Prevent overflow */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  margin-top: 100px; /* Add margin-top equal to navbar height */
 }
 
 /* Ensure the carousel takes up the full width and height of its container */
-#home .swiper {
-  width: 100%;
+#home {
   position: relative;
-  z-index: 1; /* Lower z-index than navbar */
+  overflow: visible; /* Change from hidden to visible to prevent cutting off content */
+  padding-top: 0; /* Remove padding-top to eliminate the white space */
+  margin-top: 0; /* Remove margin-top from the section */
+  height: auto; /* Let the content determine the height */
+  width: 100vw; /* Use viewport width */
+  max-width: 100%; /* Prevent overflow */
 }
 
 /* Mobile menu adjustments */
@@ -508,6 +549,8 @@ body {
   left: 0;
   right: 0;
   z-index: 999;
+  width: 100vw; /* Use viewport width */
+  max-width: 100%; /* Prevent overflow */
 }
 
 /* Ensure the pagination is visible */
@@ -577,4 +620,60 @@ body:not(.home-page) .main-content {
 /* Ensure proper spacing between sections */
 section + section {
   margin-top: 0;
+}
+
+/* Container adjustments */
+.container {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Fix for any potential overflow issues */
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Story animation styles */
+.story-animation-container {
+  position: relative;
+  overflow: hidden;
+  min-height: 400px;
+  border-radius: 0.5rem;
+}
+
+.walking-man {
+  position: absolute;
+  width: 150px;
+  height: 300px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.yoga-man {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+.story-text {
+  opacity: 1; /* Change from 0 to 1 for initial visibility */
+}
+
+.story-bg-image {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  opacity: 1; /* Change from 0.3 to 1 for initial visibility */
 }
