@@ -12,6 +12,26 @@
   <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
   <!-- GSAP for animations -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <style>
+  /* Mobile responsive styles for About Us section */
+  @media (max-width: 768px) {
+    .about-us-content {
+      flex-direction: column;
+      align-items: center;
+      min-height: auto !important;
+    }
+    
+    .about-us-image {
+      width: 70% !important;
+      margin: 0 auto 2rem auto;
+    }
+    
+    .about-us-text {
+      width: 100% !important;
+      min-height: 300px !important;
+    }
+  }
+</style>
 </head>
 <!-- Add class to body for home page specific styling -->
 <body class="font-sans bg-gray-50 text-gray-800 home-page">
@@ -122,6 +142,41 @@
       </div>
     </div>
   </section>
+
+<!-- About Us Section -->
+<section class="py-16 relative overflow-hidden">
+  <!-- Background pattern with overlay -->
+  <div class="absolute inset-0 z-0 opacity-100">
+    <div class="absolute inset-0 about-us-bg-pattern"></div>
+  </div>
+  
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="text-center mb-10">
+      <!-- Mint colored container for About Us title -->
+      <div class="about-us-title-container">
+        <h2 class="text-3xl md:text-4xl font-bold text-green-800 mb-2">About Us</h2>
+      </div>
+    </div>
+    
+    <!-- Divided content box: 40% image, 60% text -->
+    <div class="about-us-content flex" style="min-height: 400px;">
+      <div class="about-us-image w-2/5">
+        <!-- Updated image -->
+        <img src="public/images/home-about.png" alt="Ayurveda Maharshi" class="w-full h-full object-contain">
+      </div>
+      <div class="about-us-text w-3/5" style="display: flex; align-items: center; justify-content: center; height: 100%;">
+        <div class="about-us-text-content" style="text-align: center; max-width: 90%; margin: 0 auto;">
+          <p class="text-green-800 text-xl leading-relaxed mb-6" style="color: #066636;">
+            Ayurveda Maharshi is a prominent and respected figure in the field of Ayurveda medicine in India. With many years of experience, Ayurveda Maharshi has made significant contributions to the practice of Ayurveda. Our organization, which has been manufacturing and distributing renowned Ayurvedic medicines for several years, has firmly established itself in the industry.
+          </p>
+          <p class="text-green-800 text-xl leading-relaxed" style="color: #066636;">
+            Now, Ayurveda Maharshi, in collaboration with Ayurveda Maharshi Natural Wellness Center, is dedicated to improving your health through a combination of nursing care, yoga, diet, pranayama, and various natural treatment methods.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 </div>
 
   <!-- Footer -->

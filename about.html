@@ -9,81 +9,80 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    .section-divider {
-      height: 4px;
-      width: 60px;
-      background-color: var(--accent-color);
-      margin: 1rem auto;
+  .section-divider {
+    height: 4px;
+    width: 60px;
+    background-color: var(--accent-color);
+    margin: 1rem auto;
+  }
+  
+  /* Custom styles for the About Us header section */
+  .about-header {
+    position: relative;
+    width: 100%;
+    height: auto;
+    max-width: 1600px;
+    margin: 0 auto;
+    background-image: url('public/images/services-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    aspect-ratio: 1600/450;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .about-header-content {
+    padding-left: 6rem;
+    text-align: left;
+    max-width: 600px;
+    position: relative;
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+
+  .about-header-content h1 {
+    color: #e85723; /* Explicitly set to orange accent color */
+    font-size: 4rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    line-height: 1.1;
+  }
+
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .about-header {
+      aspect-ratio: 16/9;
     }
     
-    /* Custom styles for the About Us header section */
-.about-header {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 1600px;
-  margin: 0 auto;
-  background-image: url('public/images/services-bg.png');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  aspect-ratio: 1600/450;
-  display: flex;
-  align-items: center; /* Change from flex-start to center */
-  justify-content: flex-start; /* Align to left */
-}
-
-.about-header-content {
-  padding-left: 6rem;
-  text-align: left;
-  max-width: 600px;
-  position: relative;
-  z-index: 2; /* Ensure text is above the background */
-  position: absolute;
-  top: 50%; /* Center vertically */
-  left: 0;
-  transform: translateY(-50%); /* Center vertically */
-}
-
-.about-header-content h1 {
-  color: var(--accent-color); /* Orange color from accent variable */
-  font-size: 4rem; /* Larger font size */
-  font-weight: 700;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow for better readability */
-  line-height: 1.1; /* Tighter line height */
-}
-
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-  .about-header {
-    aspect-ratio: 16/9; /* Adjust aspect ratio for mobile */
-    background-size: cover;
+    .about-header-content {
+      padding-left: 2rem;
+      max-width: 90%;
+    }
+    
+    .about-header-content h1 {
+      font-size: 3rem;
+    }
   }
-  
-  .about-header-content {
-    padding-left: 2rem;
-    max-width: 90%;
-  }
-  
-  .about-header-content h1 {
-    font-size: 3rem; /* Still large but adjusted for mobile */
-  }
-}
 
-/* Add additional breakpoints for better responsiveness */
-@media (max-width: 480px) {
-  .about-header-content h1 {
-    font-size: 2.5rem; /* Smaller for very small screens */
+  /* Add additional breakpoints for better responsiveness */
+  @media (max-width: 480px) {
+    .about-header-content h1 {
+      font-size: 2.5rem;
+    }
   }
-}
 
-/* Add a medium breakpoint */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .about-header-content h1 {
-    font-size: 3.5rem; /* Medium size for tablets */
+  /* Add a medium breakpoint */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .about-header-content h1 {
+      font-size: 3.5rem;
+    }
   }
-}
-  </style>
+</style>
 </head>
 <body class="font-sans bg-gray-50 text-gray-800">
   <!-- Navigation -->
@@ -157,7 +156,7 @@
   <!-- Page Header - Modified as requested -->
   <section class="about-header">
     <div class="about-header-content">
-      <h1 data-aos="fade-right" data-key="aboutUs">About Us</h1>
+      <h1 data-key="aboutUs">About Us</h1>
     </div>
   </section>
 </div>
@@ -354,59 +353,59 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-12">
+  <footer class="bg-gray-900 text-white py-12" style="background-color: #DFB701; color: #066636;">
     <div class="container mx-auto px-6">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <div>
           <div class="mb-6">
             <img src="public/images/circular-logo.png" alt="Shree Ayurvedmaharshi" class="w-24 h-24 rounded-full border-2 border-white mb-4">
           </div>
-          <p class="text-gray-400 mb-6">
+          <p class="text-gray-400 mb-6" style="color: #066636;">
             Reconnect with nature's healing wisdom through our authentic Ayurvedic treatments and naturopathy programs.
           </p>
           <div class="flex space-x-4">
-            <a href="#" class="text-gray-400 hover:text-green-500">
+            <a href="#" class="text-gray-400 hover:text-green-500" style="color: #066636;">
               <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="#" class="text-gray-400 hover:text-green-500">
+            <a href="#" class="text-gray-400 hover:text-green-500" style="color: #066636;">
               <i class="fab fa-twitter"></i>
             </a>
-            <a href="#" class="text-gray-400 hover:text-green-500">
+            <a href="#" class="text-gray-400 hover:text-green-500" style="color: #066636;">
               <i class="fab fa-instagram"></i>
             </a>
-            <a href="#" class="text-gray-400 hover:text-green-500">
+            <a href="#" class="text-gray-400 hover:text-green-500" style="color: #066636;">
               <i class="fab fa-youtube"></i>
             </a>
           </div>
         </div>
         
         <div>
-          <h4 class="text-xl font-semibold mb-6">Quick Links</h4>
+          <h4 class="text-xl font-semibold mb-6" style="color: #066636;">Quick Links</h4>
           <ul class="space-y-3">
-            <li><a href="index.html" class="text-gray-400 hover:text-green-500">Home</a></li>
-            <li><a href="about.html" class="text-gray-400 hover:text-green-500">About Us</a></li>
-            <li><a href="services.html" class="text-gray-400 hover:text-green-500">Services</a></li>
-            <li><a href="team.html" class="text-gray-400 hover:text-green-500">Our Team</a></li>
-            <li><a href="testimonials.html" class="text-gray-400 hover:text-green-500">Testimonials</a></li>
-            <li><a href="contact.html" class="text-gray-400 hover:text-green-500">Contact Us</a></li>
+            <li><a href="index.html" class="text-gray-400 hover:text-green-500" style="color: #066636;">Home</a></li>
+            <li><a href="about.html" class="text-gray-400 hover:text-green-500" style="color: #066636;">About Us</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-green-500" style="color: #066636;">Services</a></li>
+            <li><a href="team.html" class="text-gray-400 hover:text-green-500" style="color: #066636;">Our Team</a></li>
+            <li><a href="testimonials.html" class="text-gray-400 hover:text-green-500" style="color: #066636;">Testimonials</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-green-500" style="color: #066636;">Contact Us</a></li>
           </ul>
         </div>
         
         <div>
-          <h4 class="text-xl font-semibold mb-6">Our Services</h4>
+          <h4 class="text-xl font-semibold mb-6" style="color: #066636;">Our Services</h4>
           <ul class="space-y-3">
-            <li><a href="services.html" class="text-gray-400 hover:text-green-500">Naturopathy Camps</a></li>
-            <li><a href="services.html" class="text-gray-400 hover:text-green-500">Herbal Treatments</a></li>
-            <li><a href="services.html" class="text-gray-400 hover:text-green-500">Ayurvedic Massage</a></li>
-            <li><a href="services.html" class="text-gray-400 hover:text-green-500">Nutritional Counseling</a></li>
-            <li><a href="services.html" class="text-gray-400 hover:text-green-500">Meditation & Yoga</a></li>
-            <li><a href="services.html" class="text-gray-400 hover:text-green-500">Detoxification Programs</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-green-500" style="color: #066636;">Naturopathy Camps</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-green-500" style="color: #066636;">Herbal Treatments</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-green-500" style="color: #066636;">Ayurvedic Massage</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-green-500" style="color: #066636;">Nutritional Counseling</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-green-500" style="color: #066636;">Meditation & Yoga</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-green-500" style="color: #066636;">Detoxification Programs</a></li>
           </ul>
         </div>
         
         <div>
-          <h4 class="text-xl font-semibold mb-6">Newsletter</h4>
-          <p class="text-gray-400 mb-4">
+          <h4 class="text-xl font-semibold mb-6" style="color: #066636;">Newsletter</h4>
+          <p class="text-gray-400 mb-4" style="color: #066636;">
             Subscribe to our newsletter for the latest updates on camps, wellness tips, and special offers.
           </p>
           <form>
@@ -420,14 +419,14 @@
         </div>
       </div>
       
-      <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-        <p class="text-gray-400 text-sm">
+      <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center" style="border-color: #066636;">
+        <p class="text-gray-400 text-sm" style="color: #066636;">
           &copy; 2025 AyurvedaHarmony. All rights reserved.
         </p>
         <div class="mt-4 md:mt-0">
-          <a href="#" class="text-gray-400 hover:text-green-500 text-sm mr-4">Privacy Policy</a>
-          <a href="#" class="text-gray-400 hover:text-green-500 text-sm mr-4">Terms of Service</a>
-          <a href="#" class="text-gray-400 hover:text-green-500 text-sm">Sitemap</a>
+          <a href="#" class="text-gray-400 hover:text-green-500 text-sm mr-4" style="color: #066636;">Privacy Policy</a>
+          <a href="#" class="text-gray-400 hover:text-green-500 text-sm mr-4" style="color: #066636;">Terms of Service</a>
+          <a href="#" class="text-gray-400 hover:text-green-500 text-sm" style="color: #066636;">Sitemap</a>
         </div>
       </div>
     </div>
