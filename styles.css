@@ -256,23 +256,74 @@ body {
 
 /* Update Service Cards */
 .service-card {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
   background-color: var(--white);
-  border: 1px solid var(--primary-color);
-  transition: var(--transition);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  z-index: 1;
+  border: 1px solid #e0e7e0;
 }
 
-.service-card:hover {
-  border-color: var(--accent-color);
-  transform: translateY(-5px);
-  box-shadow: var(--shadow);
+/* Update the service-card-image class to ensure images are visible */
+.service-card-image {
+  height: 200px;
+  overflow: hidden;
+  background-color: var(--primary-color);
+  position: relative;
 }
 
-.service-card a {
+/* Add a fallback for when images don't load */
+.service-card-image::after {
+  content: attr(data-service-name);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: bold;
   color: var(--primary-dark);
+  opacity: 0;
 }
 
-.service-card a:hover {
+.service-card-image img:not([src]),
+.service-card-image img[src=""],
+.service-card-image img[src="null"] {
+  display: none;
+}
+
+.service-card-image img:not([src]) + .service-card-image::after,
+.service-card-image img[src=""] + .service-card-image::after,
+.service-card-image img[src="null"] + .service-card-image::after {
+  opacity: 1;
+}
+
+
+Update the service-card-content class to have more padding and distinct styling .service-card-content {
+  padding: 1.5rem;
+  background-color: var(--white);
+  border-top: 3px solid var(--primary-color);
+}
+
+/* Make the service card title more prominent */
+.service-card-title {
+  color: var(--primary-dark);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+}
+
+.service-card-title i {
   color: var(--accent-color);
+  margin-right: 0.5rem;
+  font-size: 1.25rem;
 }
 
 .service-icon {
