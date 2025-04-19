@@ -304,8 +304,10 @@ body {
   opacity: 1;
 }
 
-
-Update the service-card-content class to have more padding and distinct styling .service-card-content {
+/*
+Update the service-card-content class to have more padding and distinct styling
+*/
+.service-card-content {
   padding: 1.5rem;
   background-color: var(--white);
   border-top: 3px solid var(--primary-color);
@@ -446,23 +448,6 @@ Update the service-card-content class to have more padding and distinct styling 
 
 .faq-question.active i {
   transform: rotate(180deg);
-}
-
-/* Animations */
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
 }
 
 /* Mobile Menu Toggle Button */
@@ -794,15 +779,146 @@ body {
   padding: 2rem;
 }
 
+/* Contact Us title container */
+.contact-us-title-container {
+  background-color: var(--primary-color);
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow);
+}
+
+/* Custom background pattern for Contact Us section */
+.contact-us-bg-pattern {
+  background-image: url("public/images/home-bg-2.svg");
+  background-repeat: repeat;
+  background-size: 120px 120px;
+  will-change: transform; /* Hint to browser to optimize rendering */
+  backface-visibility: hidden; /* Improves performance */
+  transform: translateZ(0); /* Force GPU acceleration */
+}
+
 /* Optimize the responsive adjustments */
 @media (max-width: 768px) {
-  .about-us-bg-pattern {
+  .about-us-bg-pattern,
+  .contact-us-bg-pattern {
     background-size: 90px 90px;
   }
 }
 
 @media (max-width: 480px) {
-  .about-us-bg-pattern {
+  .about-us-bg-pattern,
+  .contact-us-bg-pattern {
     background-size: 60px 60px;
+  }
+}
+
+/* Contact Section Styles */
+.contact-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, white, transparent);
+  z-index: 5;
+}
+
+.contact-section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to top, #fffaa0, transparent);
+  z-index: 5;
+}
+
+/* Mobile responsive styles for Contact Us section */
+@media (max-width: 768px) {
+  .contact-us-title-container {
+    padding: 0.5rem 1rem;
+    width: 90% !important;
+    max-width: 400px;
+    margin: 0 auto 1rem auto;
+    border-radius: 0.5rem;
+  }
+
+  .contact-us-title-container h2 {
+    font-size: 1.5rem !important;
+    margin-bottom: 0;
+  }
+
+  .py-16.md\:py-24.relative.overflow-hidden .max-w-4xl .bg-white {
+    border-radius: 0.5rem;
+  }
+
+  .py-16.md\:py-24.relative.overflow-hidden .max-w-4xl .p-6 h3 {
+    font-size: 1.5rem;
+  }
+
+  .py-16.md\:py-24.relative.overflow-hidden .max-w-4xl .p-6 p {
+    font-size: 0.875rem;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-us-title-container {
+    width: 95% !important;
+    padding: 0.375rem 0.75rem;
+  }
+
+  .contact-us-title-container h2 {
+    font-size: 1.25rem !important;
+  }
+
+  .py-16.md\:py-24.relative.overflow-hidden .text-lg {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .py-16.md\:py-24.relative.overflow-hidden .max-w-4xl .p-6 {
+    padding: 1rem;
+  }
+
+  .py-16.md\:py-24.relative.overflow-hidden .max-w-4xl .p-6 h3 {
+    font-size: 1.25rem;
+  }
+
+  .py-16.md\:py-24.relative.overflow-hidden .max-w-4xl .p-6 p {
+    font-size: 0.875rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .py-16.md\:py-24.relative.overflow-hidden .max-w-4xl .space-y-3 {
+    margin-bottom: 1rem;
+  }
+
+  .py-16.md\:py-24.relative.overflow-hidden .max-w-4xl .space-y-3 .text-sm {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .contact-us-title-container {
+    width: 100% !important;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .contact-us-title-container h2 {
+    font-size: 1.125rem !important;
+  }
+
+  .py-16.md\:py-24.relative.overflow-hidden .max-w-4xl .p-6 h3 {
+    font-size: 1.125rem;
   }
 }
